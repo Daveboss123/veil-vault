@@ -13,6 +13,7 @@ dist-ssr
 *.local
 .local/
 .playwright-mcp/
+screenshots/
 PRIVATE-*.json
 art-source/inbox/*.jpg
 

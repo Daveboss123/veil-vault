@@ -1,0 +1,52 @@
+.vault-emblem {
+  display: block;
+  width: 54%;
+  flex: 0 0 auto;
+  aspect-ratio: 1;
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, .35));
+}
+
+.vault-emblem svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.vault-emblem .emblem-disc { fill: #0c1610; }
+.vault-emblem .emblem-ring { fill: none; stroke: var(--emblem-accent); stroke-width: 2.5; }
+.vault-emblem .emblem-ring-inner { fill: none; stroke: var(--emblem-accent); stroke-width: 1; opacity: .34; }
+.vault-emblem .emblem-tick { stroke: var(--emblem-accent); stroke-width: 2; opacity: .7; }
+.vault-emblem .emblem-art { stroke-linecap: square; stroke-linejoin: miter; }
+.vault-emblem .e-base { fill: var(--emblem-base); }
+.vault-emblem .e-light { fill: var(--emblem-light); }
+.vault-emblem .e-dark { fill: var(--emblem-dark); }
+.vault-emblem .e-line { fill: none; stroke: var(--emblem-line); stroke-width: 2; }
+.vault-emblem .e-line-soft { fill: none; stroke: var(--emblem-line); stroke-width: 1; opacity: .45; }
+.vault-emblem .e-line-light { fill: none; stroke: var(--emblem-light); stroke-width: 1.5; opacity: .8; }
+
+.vault-emblem.emblem-copper {
+  --emblem-accent: #d18a67;
+  --emblem-base: #a65d40;
+  --emblem-light: #d98a63;
+  --emblem-dark: #6f3b28;
+  --emblem-line: #142019;
+}
+
+.vault-emblem.emblem-moon {
+  --emblem-accent: #bdcfda;
+  --emblem-base: #5f7182;
+  --emblem-light: #bdcfda;
+  --emblem-dark: #3d4e5e;
+  --emblem-line: #142019;
+}
+
+.vault-emblem.emblem-crown {
+  --emblem-accent: #f1cf6c;
+  --emblem-base: #a37d2f;
+  --emblem-light: #f1cf6c;
+  --emblem-dark: #6d4f18;
+  --emblem-line: #142019;
+}
