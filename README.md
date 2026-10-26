@@ -1,16 +1,18 @@
 # Veil Vault
 
-Veil Vault is a one-round shielded bluffing game. Four runners secretly choose
-among three vaults worth 3, 5 or 8 relics. A lone runner claims a vault; two or
-more runners at the same door trigger its alarm and score nothing.
+Veil Vault is a one-round shielded bluffing game prototype. Four runners secretly
+choose among three vaults worth 3, 5 or 8 relics. A lone runner claims a vault;
+two or more runners at the same door trigger its alarm and score nothing.
 
 Built as a separate project for the **ZECATHON 2026 Wildcard** track.
 
-- **Play:** https://veil-vault-lovat.vercel.app/
+- **Play:** https://veil-vault-game.vercel.app/
 - **Source:** https://github.com/Daveboss123/veil-vault
 
 The production site is a static Vite build on Vercel. It serves the same
-security headers as `public/_headers` through `vercel.json`.
+security headers as `public/_headers` through `vercel.json`. The submission
+video will be hosted on YouTube as an external link; this site does not embed it
+or load YouTube assets.
 
 ## Current state
 
@@ -26,9 +28,9 @@ The playable practice round runs entirely in the browser:
   remain random and committed before the player chooses;
 - each move is bound to a SHA-256 commitment with a random 32-byte salt;
 - the sealed phase shows a public commitment QR and offers an explicit download of
-  the private practice receipt;
+  the practice receipt, which must be kept private and is not encrypted;
 - every reveal is checked against its commitment before scoring;
-- the winner is recomputed from the verified reveals;
+- the winner is recomputed from the browser-verified reveals;
 - a deliberately forged winner is rejected.
 - locally bundled Jacquard 24 and Silkscreen fonts provide the indie-game UI;
 - optional procedural sound effects and an ambient score use Web Audio and make
@@ -41,12 +43,13 @@ The playable practice round runs entirely in the browser:
 
 The testnet lab is a judge-facing appendix, not part of the main navigation or
 the player flow. It is linked from the “Why Zcash” section on the landing page.
-It implements strict round files, private receipts, ZIP-321 anchor/commit/reveal
-requests, local QR codes and shielded testnet address validation. A supplied-record
-checker recomputes anchors, timing, commitments, reveals, collisions and winners,
-but cannot detect records omitted from the file. The lab does not sign, broadcast,
-independently scan or confirm transactions. Practice is not chain evidence, and a
-complete live testnet round has not been demonstrated.
+It implements strict round files, receipts that must be kept private, ZIP-321
+anchor/commit/reveal requests, local QR codes and shielded testnet address
+validation. A supplied-record checker checks the anchor, timing windows, fixed
+payments, commitments, reveals, collisions and winner, but cannot detect records
+omitted from the file. The lab does not sign, broadcast, independently scan or
+confirm transactions. Practice is not chain evidence, and a complete live testnet
+round has not been demonstrated.
 
 ## Run locally
 
@@ -91,6 +94,7 @@ result and regeneration command.
 - `docs/PROTOCOL.md` — testnet protocol, memo formats, windows and limits.
 - `docs/RELEASE-CHECKLIST.md` — verified work, release steps, live-round evidence
   requirements and claims policy.
+- `docs/CLAIMS-REVIEW.md` — claim-by-claim evidence review and video guardrails.
 - `docs/SUBMISSION-DRAFT.md` — draft submission copy and two-minute video outline.
 - `docs/GENERATED-ASSETS.md` — character-art provenance and processing.
 - `docs/examples/README.md` — fabricated audit sample and its limits.
@@ -98,8 +102,12 @@ result and regeneration command.
 ## Privacy boundaries
 
 - Practice choices and secrets are held in React memory and disappear on refresh
-  unless you explicitly download a private practice receipt.
-- The site has no accounts, analytics, remote fonts, wallet relay or mainnet flow.
+  unless you explicitly download a receipt. The receipt is not encrypted; anyone
+  holding it can read the move.
+- The site has no accounts, analytics, cookies, browser-storage APIs, remote fonts,
+  wallet relay or mainnet flow.
+- The submission video is hosted externally on YouTube; the site does not embed
+  it or load YouTube scripts.
 - Fonts, character vectors and audio are local; no media CDN is contacted.
 - Production CSP sets `connect-src 'none'`; automated privacy tests reject
   network-client or browser-storage APIs in application source.

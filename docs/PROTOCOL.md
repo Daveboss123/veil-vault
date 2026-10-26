@@ -22,7 +22,7 @@ windows, fixed payment and scoring rule. Their exact UTF-8 SHA-256 preimage is:
 ["VEIL-VAULT-RULES-v1",version,roundId,network,address,title,playerLimit,startHeight,commitDeadlineHeight,revealDeadlineHeight,submissionZatoshis,scoring]
 ```
 
-## Anonymous move commitment
+## One-round move commitment
 
 Each private receipt creates a fresh random 8-byte runner tag and random 32-byte
 secret. The tag exists for one round and is not a name or account.

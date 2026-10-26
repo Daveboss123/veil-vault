@@ -50,8 +50,8 @@ only to keep the sample and its regression test in sync.
 
 A valid reveal necessarily discloses the one-round runner tag, chosen vault and
 random secret. The sample includes fabricated values so the checker can verify
-the commitment chain. A real private receipt must stay private until its reveal
-is intentionally sent. The sample's tags and secrets belong to no person and no
+the commitment chain. A real receipt must stay private until its reveal is
+intentionally sent. The sample's tags and secrets belong to no person and no
 wallet.
 
 ## Limits

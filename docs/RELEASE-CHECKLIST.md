@@ -12,9 +12,10 @@ Last reviewed: 2026-10-26. Keep unchecked items unchecked until there is evidenc
   practice-receipt download.
 - [x] Testnet lab is a judge-facing appendix linked from “Why Zcash,” not part of
   the main navigation or player flow.
-- [x] Browser-verified sealed QR card, private-receipt download, judge appendix
+- [x] Browser-verified sealed QR card, practice-receipt download, judge appendix
   link, clean console, same-origin requests and no cookies or browser storage.
-- [x] Testnet round files, private receipts, ZIP-321 requests and local QR codes.
+- [x] Testnet round files, receipts that must be kept private, ZIP-321 requests
+  and local QR codes.
 - [x] Shielded testnet address validation, including F4Jumble parsing for
   shielded-only Unified Addresses.
 - [x] Supplied-record checker and a clearly labelled fabricated sample bundle.
@@ -34,24 +35,29 @@ Last reviewed: 2026-10-26. Keep unchecked items unchecked until there is evidenc
   are confirmed ignored and untracked; no secrets, source maps or high-resolution
   originals are tracked.
 - [x] **Deployment:** production build published at
-  https://veil-vault-lovat.vercel.app/ (Vercel project `veil-vault`, DAVE team,
+  https://veil-vault-game.vercel.app/ (Vercel project `veil-vault`, DAVE team,
   linked to GitHub `main`). Release commit `2476c625845f1518b44d6740b9353ab39a8056cf`
   built as `dpl_D8mukboHL9y7THPCvjok3tMD6a9Y`; later docs-only commits auto-deploy
-  from `main`. Deployment protection is disabled so judges can open the site
-  without logging in.
-- [x] **Header check:** `curl.exe -I https://veil-vault-lovat.vercel.app/` on
+  from `main`. The older `veil-vault-lovat.vercel.app` alias remains available.
+  Deployment protection is disabled so judges can open the site without logging in.
+- [x] **Header check:** `curl.exe -I https://veil-vault-game.vercel.app/` on
   2026-10-26 returned CSP with `connect-src 'none'`, `Referrer-Policy:
   no-referrer`, `X-Content-Type-Options: nosniff`, `X-Frame-Options: DENY`,
   `Permissions-Policy`, HSTS, COOP and CORP.
 - [x] **Build audit:** inspected `dist/` and the deployed network panel. No source
-  maps, private receipts, high-resolution art originals or unexpected requests
-  are present. Browser run showed a clean console, same-origin requests only, and
-  no cookies or browser storage.
-- [ ] **Video:** record a two-minute demo using the outline in
-  `docs/SUBMISSION-DRAFT.md`. Keep the practice/testnet distinction explicit.
+  maps, receipt files, high-resolution art originals or unexpected requests are
+  present. Browser run showed a clean console, same-origin requests only, and no
+  cookies or browser storage.
+- [ ] **Video:** record a two-minute demo using the outline and claims guardrails
+  in `docs/SUBMISSION-DRAFT.md`. Host it on YouTube as an external link; do not
+  embed it in the site. Keep the practice/testnet distinction explicit.
 - [ ] **Submission copy:** fill every placeholder in the draft, including the
-  video URL. Public and repository URLs are filled.
-- [ ] **Claims review:** read the final text against the policy below.
+  YouTube URL. Public and repository URLs are filled.
+- [x] **Claims review (first pass):** completed 2026-10-26 against the policy
+  below. Claim-by-claim evidence and corrections are recorded in
+  `docs/CLAIMS-REVIEW.md`.
+- [ ] **Claims review (final pass):** repeat after the YouTube upload and final
+  copy, using the checklist in `docs/CLAIMS-REVIEW.md`.
 
 ## Live testnet round — only with explicit approval
 
@@ -93,14 +99,18 @@ Fill this only after a real round. Leave it blank otherwise.
 
 Safe to claim now:
 
-- Veil Vault is a playable browser practice game with real commitment and scoring
-  logic.
-- The testnet lab prepares shielded wallet requests, private receipts and local
-  QR codes.
-- The supplied-record checker recomputes internal consistency without uploading
-  the file.
-- Privacy hardening blocks network clients, cookies, browser storage and remote
-  assets in the application.
+- Veil Vault is a playable browser practice game with real SHA-256 commitment and
+  scoring logic, and browser-side reveal verification.
+- The testnet lab prepares shielded wallet requests, receipts that must be kept
+  private and local QR codes. It does not sign, broadcast or confirm.
+- Receipts are not encrypted; anyone holding one can read the move.
+- The supplied-record checker checks internal consistency without uploading the
+  file. It does not prove completeness or independent chain truth.
+- Application-level privacy hardening blocks network clients, cookies,
+  browser-storage APIs and remote assets. The static host still sees ordinary page
+  requests and IP addresses.
+- The submission video is hosted on YouTube as an external link; the site does not
+  embed it or load YouTube assets.
 
 Not safe to claim without new evidence:
 

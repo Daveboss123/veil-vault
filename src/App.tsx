@@ -89,7 +89,7 @@ function Home({ onPlay, onGuide }: { onPlay: () => void; onGuide: () => void }) 
       <div className="hero-copy">
         <Ornament name="key" className="hero-ornament" />
         <div className="eyebrow"><span>01</span> A SHIELDED BLUFFING GAME</div>
-        <h1>Choose a vault.<br /><em>Leave no trail.</em></h1>
+        <h1>Choose a vault.<br /><em>Keep it hidden.</em></h1>
         <p className="hero-lede">Four runners. Three vaults. Enter alone and the relic is yours. Choose the same door as a rival and the alarm takes everything.</p>
         <div className="hero-actions"><button className="button button-acid" onClick={onPlay}>Enter the practice vault <span>↗</span></button><a className="text-link" href="#rules">Learn the rules <span>↓</span></a></div>
         <p className="safe-note"><span>✓</span> No wallet, account or payment needed for practice.</p>
@@ -135,14 +135,14 @@ function Home({ onPlay, onGuide }: { onPlay: () => void; onGuide: () => void }) 
       <div className="section-heading"><span className="eyebrow"><b>02</b> HOW TO PLAY</span><h2>One choice.<br />No safe answer.</h2></div>
       <div className="rule-grid">
         <article><span className="rule-number">01</span><div className="mini-scene doors-mini">{VAULTS.map((vault) => <VaultDoor vault={vault} small key={vault.id} />)}</div><h3>Read the room</h3><p>The Copper Cache is worth 3. The Moon Archive holds 5. The Sun Crown is worth 8—and draws the bold.</p></article>
-        <article><span className="rule-number">02</span><div className="mini-scene seal-mini"><span className="sealed-gem">◆</span><span className="hash-lines">82A1<br />F09C<br />••••</span></div><h3>Seal your move</h3><p>Your choice is mixed with a random secret and locked into a commitment. Nobody can read or change it.</p></article>
+        <article><span className="rule-number">02</span><div className="mini-scene seal-mini"><span className="sealed-gem">◆</span><span className="hash-lines">82A1<br />F09C<br />••••</span></div><h3>Seal your move</h3><p>Your choice is mixed with a random secret and locked into a commitment. The commitment hides your choice and cannot be changed without breaking the hash.</p></article>
         <article><span className="rule-number">03</span><div className="mini-scene collision-mini"><Mark id="fox">F</Mark><span className="alarm-lines">×</span><Mark id="rook">R</Mark></div><h3>Avoid the alarm</h3><p>Alone at a vault? Claim its relics. Meet another runner there? The alarm fires and both leave empty-handed.</p></article>
       </div>
     </section>
 
     <section className="zcash-section" id="zcash">
       <Ornament name="route" className="zcash-ornament" />
-      <div className="zcash-copy"><span className="eyebrow eyebrow-dark"><b>03</b> WHY ZCASH</span><h2>A private move should stay private.</h2><p>In testnet mode, a shielded transaction carries each commitment. The chain can prove a move arrived on time without publishing the player or their choice.</p><ul><li><span>✓</span> Salted commitments hide the chosen vault</li><li><span>✓</span> Shielded transfers do not publish sender identities</li><li><span>✓</span> Reveals let anyone recompute the result</li></ul><p className="build-note">The testnet lab builds wallet requests and private receipts. A complete live round and independent chain audit have not yet been demonstrated.</p><a className="judge-link" href="#testnet"><span>FOR JUDGES</span> Testnet appendix &amp; audit checker <b>→</b></a></div>
+      <div className="zcash-copy"><span className="eyebrow eyebrow-dark"><b>03</b> WHY ZCASH</span><h2>A private move should stay private.</h2><p>In the testnet design, a shielded payment carries each commitment. Its mined height can anchor when a move arrived, while the commitment keeps the vault choice hidden.</p><ul><li><span>✓</span> Salted commitments hide the chosen vault</li><li><span>✓</span> Shielded transfers do not publish sender addresses in the ordinary transparent way</li><li><span>✓</span> Published reveals let anyone recompute the result</li></ul><p className="build-note">The testnet lab builds wallet requests and receipts you must keep private. A complete live round and independent chain audit have not yet been demonstrated.</p><a className="judge-link" href="#testnet"><span>FOR JUDGES</span> Testnet appendix &amp; audit checker <b>→</b></a></div>
       <div className="spectator-card">
         <div className="spectator-head"><span>SPECTATOR VIEW</span><span className="live-dot">SELECTION OPEN</span></div>
         <p>Four moves arrived. Their choices are unreadable.</p>
@@ -153,7 +153,7 @@ function Home({ onPlay, onGuide }: { onPlay: () => void; onGuide: () => void }) 
 
     <section className="privacy-section" id="privacy">
       <Ornament name="seal" className="privacy-ornament" />
-      <span className="eyebrow"><b>04</b> PRIVACY, PLAINLY</span><div className="privacy-layout"><h2>The game hides choices.<br />It does not promise invisibility.</h2><div><p>Practice moves never leave this browser. A future testnet round will use a dedicated shielded address and fixed-value transactions. Revealed moves become public after the round.</p><p>Network timing, wallet servers and outside information can still reveal clues. Veil Vault will use no accounts, analytics, transaction relay or mainnet funds.</p></div></div>
+      <span className="eyebrow"><b>04</b> PRIVACY, PLAINLY</span><div className="privacy-layout"><h2>The game hides choices.<br />It does not promise invisibility.</h2><div><p>Practice moves stay in this browser unless you save a receipt. A future testnet round will use a dedicated shielded address and fixed-value transactions. Revealed moves become public after the round.</p><p>Network timing, wallet servers and outside information can still reveal clues. Veil Vault will use no accounts, analytics, transaction relay or mainnet funds.</p></div></div>
     </section>
 
     <section className="final-cta"><Ornament name="crown" className="cta-ornament" /><div><span>THE CHAMBER IS OPEN</span><h2>Which door looks empty?</h2></div><button className="button button-acid" onClick={onPlay}>Play a practice round <span>↗</span></button></section>
@@ -223,7 +223,7 @@ function FairPlay({ onPlay, onGuide }: { onPlay: () => void; onGuide: () => void
 
     <section className="manual-section mode-section">
       <div className="manual-section-heading"><span>03</span><div><p>KNOW WHICH WORLD YOU ARE IN</p><h2>Practice is not testnet.</h2></div></div>
-      <div className="mode-cards"><article><span>AVAILABLE NOW</span><h3>Browser practice</h3><p>Your move, simulated rivals, commitments and results exist only in this browser’s memory unless you explicitly save a receipt. Refreshing clears the round. No transaction is sent.</p><ul><li>No wallet</li><li>No payment</li><li>No chain evidence</li><li>Real commitment and scoring logic</li></ul></article><article><span>LAB AVAILABLE · LIVE ROUND UNPROVEN</span><h3>Zcash testnet</h3><p>The lab builds shielded anchor, commitment and reveal requests with downloadable public rounds and private receipts. It does not sign, broadcast or confirm them.</p><ul><li>Testnet funds only</li><li>Wallet signs transactions</li><li>Chain timing decides validity</li><li>Must be demonstrated before claimed</li></ul></article></div>
+      <div className="mode-cards"><article><span>AVAILABLE NOW</span><h3>Browser practice</h3><p>Your move, simulated rivals, commitments and results exist only in this browser’s memory unless you explicitly save a receipt. Refreshing clears the round. No transaction is sent.</p><ul><li>No wallet</li><li>No payment</li><li>No chain evidence</li><li>SHA-256 commitment and scoring logic</li></ul></article><article><span>LAB AVAILABLE · LIVE ROUND UNPROVEN</span><h3>Zcash testnet</h3><p>The lab builds shielded anchor, commitment and reveal requests with downloadable public rounds and receipts you must keep private. It does not sign, broadcast or confirm them.</p><ul><li>Testnet funds only</li><li>Wallet signs transactions</li><li>Mined heights decide validity</li><li>Must be demonstrated before claimed</li></ul></article></div>
     </section>
 
     <section className="manual-section privacy-truth">
