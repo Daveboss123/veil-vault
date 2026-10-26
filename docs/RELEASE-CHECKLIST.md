@@ -27,8 +27,8 @@ Last reviewed: 2026-10-26. Keep unchecked items unchecked until there is evidenc
 
 ## Required before public submission
 
-- [ ] **Eligibility:** confirm that a second ZECATHON profile/project is allowed.
-  An email was sent to `bladet928@gmail.com`; no confirmation has been received.
+- [x] **Eligibility:** organizers confirmed Veil Vault may be submitted under a
+  separate ZECATHON account. Keep the written confirmation with the submission.
 - [ ] **Repository:** decide whether the submission repo is public. Confirm that
   `art-source/inbox/` and all `PRIVATE-*.json` files stay ignored.
 - [ ] **Deployment:** publish the production build. Netlify and Cloudflare Pages
