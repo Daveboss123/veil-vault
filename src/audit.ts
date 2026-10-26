@@ -64,10 +64,17 @@ function outcomeFor(reveals: { playerId: string; vaultId: VaultId }[]): GameOutc
 export async function auditSuppliedRecords(value: unknown, declaredWinner?: string | null): Promise<AuditResult> {
   if (value === null || typeof value !== 'object' || Array.isArray(value)) throw new Error('Supplied record bundle must be an object.')
   const bundle = value as Record<string, unknown>
-  if (Object.keys(bundle).some((key) => !['format', 'manifest', 'tipHeight', 'complete', 'records'].includes(key)) || bundle.format !== SUPPLIED_RECORDS_FORMAT || bundle.complete !== true || !Array.isArray(bundle.records) || typeof bundle.tipHeight !== 'number' || !Number.isSafeInteger(bundle.tipHeight)) throw new Error('Not a complete Veil Vault supplied-record bundle.')
+  if (Object.keys(bundle).some((key) => !['format', 'manifest', 'tipHeight', 'complete', 'records'].includes(key)) || bundle.format !== SUPPLIED_RECORDS_FORMAT || bundle.complete !== true || !Array.isArray(bundle.records) || typeof bundle.tipHeight !== 'number' || !Number.isSafeInteger(bundle.tipHeight) || bundle.tipHeight < 1) throw new Error('Not a complete Veil Vault supplied-record bundle.')
   const manifest = await validateManifest(bundle.manifest)
-  if (bundle.tipHeight < manifest.rules.revealDeadlineHeight + CONFIRMATION_BLOCKS) throw new Error('Bundle tip is too early for the final confirmation check.')
+  const tipHeight = bundle.tipHeight
+  if (tipHeight < manifest.rules.revealDeadlineHeight + CONFIRMATION_BLOCKS) throw new Error('Bundle tip is too early for the final confirmation check.')
   const records = bundle.records.map(validateRecord).sort((left, right) => left.height - right.height || left.txid.localeCompare(right.txid))
+  if (records.some((record) => record.height > tipHeight)) throw new Error('Bundle contains a record above its declared tip height.')
+  const seenTxids = new Set<string>()
+  for (const record of records) {
+    if (seenTxids.has(record.txid)) throw new Error('Bundle contains a duplicate transaction ID.')
+    seenTxids.add(record.txid)
+  }
   const rejected: RejectedRecord[] = []
   const anchors: ChainRecord[] = []
   const commits = new Map<string, ChainRecord>()
@@ -93,6 +100,7 @@ export async function auditSuppliedRecords(value: unknown, declaredWinner?: stri
   }
 
   if (anchors.length === 0) throw new Error('No valid pre-start anchor was supplied.')
+  if (manifest.anchorTxid !== null && !anchors.some((anchor) => anchor.txid === manifest.anchorTxid)) throw new Error('Manifest anchor transaction is not a valid pre-start anchor in this bundle.')
   if (commits.size > manifest.rules.playerLimit) throw new Error('Round has more distinct commitments than its player limit.')
   const byTag = new Map<string, { record: ChainRecord; runnerTag: string; vaultId: VaultId; commitment: string }>()
   const usedCommitments = new Set<string>()
@@ -104,5 +112,5 @@ export async function auditSuppliedRecords(value: unknown, declaredWinner?: stri
   const accepted = [...byTag.values()]
   const outcome = outcomeFor(accepted.map((reveal) => ({ playerId: reveal.runnerTag, vaultId: reveal.vaultId })))
   if (declaredWinner !== undefined && outcome.winnerId !== declaredWinner) throw new Error('Declared winner does not match the verified supplied records.')
-  return { source: 'supplied-records', rulesHash: manifest.rulesHash, anchorTxid: anchors[0].txid, acceptedCommitments: commits.size, acceptedReveals: accepted.length, unopenedCommitments: commits.size - accepted.length, rejected, outcome }
+  return { source: 'supplied-records', rulesHash: manifest.rulesHash, anchorTxid: manifest.anchorTxid ?? anchors[0].txid, acceptedCommitments: commits.size, acceptedReveals: accepted.length, unopenedCommitments: commits.size - accepted.length, rejected, outcome }
 }

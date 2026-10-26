@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react'
 import { chooseRivalVault, commitMove, declaredWinnerIsValid, randomHex, resolveRound, VAULTS, verifyReveal } from './game.ts'
 import type { GameOutcome, MoveReceipt, Vault, VaultId } from './game.ts'
+import { downloadJson } from './download.ts'
 import { Ornament } from './components/Ornament.tsx'
+import { QrCode } from './components/QrCode.tsx'
 import { TestnetLab } from './components/TestnetLab.tsx'
 import { playGameSound, setAmbientMusic } from './sound.ts'
 import './App.css'
@@ -70,11 +72,11 @@ function VaultDoor({ vault, small = false }: { vault: Vault; small?: boolean }) 
   </div>
 }
 
-function Header({ screen, onHome, onPlay, onGuide, onFairness, onTestnet, soundOn, onSoundToggle }: { screen: Screen; onHome: () => void; onPlay: () => void; onGuide: () => void; onFairness: () => void; onTestnet: () => void; soundOn: boolean; onSoundToggle: () => void }) {
+function Header({ screen, onHome, onPlay, onGuide, onFairness, soundOn, onSoundToggle }: { screen: Screen; onHome: () => void; onPlay: () => void; onGuide: () => void; onFairness: () => void; soundOn: boolean; onSoundToggle: () => void }) {
   return <header className="site-header">
     <button className="brand-button" onClick={onHome} aria-label="Veil Vault home"><Logo /></button>
     {screen === 'game' ? <><button className="sound-toggle sound-toggle-game" onClick={onSoundToggle} aria-pressed={soundOn} aria-label={`Turn audio ${soundOn ? 'off' : 'on'}`}><span>{soundOn ? '◖))' : '◖×'}</span>{soundOn ? 'Audio on' : 'Audio off'}</button><div className="practice-label"><span />Practice simulation</div><button className="button button-ghost button-small" onClick={onHome}>Exit round</button></>
-      : <><nav aria-label="Main navigation"><button className={screen === 'guide' ? 'nav-current' : ''} onClick={onGuide}>How to play</button><button className={screen === 'fairness' ? 'nav-current' : ''} onClick={onFairness}>Fair play</button><button className={screen === 'testnet' ? 'nav-current' : ''} onClick={onTestnet}>Testnet lab</button>{screen === 'home' && <a href="#lore">Lore</a>}</nav><button className="sound-toggle" onClick={onSoundToggle} aria-pressed={soundOn} aria-label={`Turn audio ${soundOn ? 'off' : 'on'}`}><span>{soundOn ? '◖))' : '◖×'}</span>{soundOn ? 'Audio on' : 'Audio off'}</button><button className="button button-light button-small" onClick={onPlay}>Play practice</button></>}
+      : <><nav aria-label="Main navigation"><button className={screen === 'guide' ? 'nav-current' : ''} onClick={onGuide}>How to play</button><button className={screen === 'fairness' ? 'nav-current' : ''} onClick={onFairness}>Fair play</button>{screen === 'home' && <a href="#lore">Lore</a>}</nav><button className="sound-toggle" onClick={onSoundToggle} aria-pressed={soundOn} aria-label={`Turn audio ${soundOn ? 'off' : 'on'}`}><span>{soundOn ? '◖))' : '◖×'}</span>{soundOn ? 'Audio on' : 'Audio off'}</button><button className="button button-light button-small" onClick={onPlay}>Play practice</button></>}
   </header>
 }
 
@@ -140,7 +142,7 @@ function Home({ onPlay, onGuide }: { onPlay: () => void; onGuide: () => void }) 
 
     <section className="zcash-section" id="zcash">
       <Ornament name="route" className="zcash-ornament" />
-      <div className="zcash-copy"><span className="eyebrow eyebrow-dark"><b>03</b> WHY ZCASH</span><h2>A private move should stay private.</h2><p>In testnet mode, a shielded transaction carries each commitment. The chain can prove a move arrived on time without publishing the player or their choice.</p><ul><li><span>✓</span> Salted commitments hide the chosen vault</li><li><span>✓</span> Shielded transfers do not publish sender identities</li><li><span>✓</span> Reveals let anyone recompute the result</li></ul><p className="build-note">The testnet lab now builds wallet requests and private receipts. A complete live round and independent chain audit have not yet been demonstrated.</p></div>
+      <div className="zcash-copy"><span className="eyebrow eyebrow-dark"><b>03</b> WHY ZCASH</span><h2>A private move should stay private.</h2><p>In testnet mode, a shielded transaction carries each commitment. The chain can prove a move arrived on time without publishing the player or their choice.</p><ul><li><span>✓</span> Salted commitments hide the chosen vault</li><li><span>✓</span> Shielded transfers do not publish sender identities</li><li><span>✓</span> Reveals let anyone recompute the result</li></ul><p className="build-note">The testnet lab builds wallet requests and private receipts. A complete live round and independent chain audit have not yet been demonstrated.</p><a className="judge-link" href="#testnet"><span>FOR JUDGES</span> Testnet appendix &amp; audit checker <b>→</b></a></div>
       <div className="spectator-card">
         <div className="spectator-head"><span>SPECTATOR VIEW</span><span className="live-dot">SELECTION OPEN</span></div>
         <p>Four moves arrived. Their choices are unreadable.</p>
@@ -221,7 +223,7 @@ function FairPlay({ onPlay, onGuide }: { onPlay: () => void; onGuide: () => void
 
     <section className="manual-section mode-section">
       <div className="manual-section-heading"><span>03</span><div><p>KNOW WHICH WORLD YOU ARE IN</p><h2>Practice is not testnet.</h2></div></div>
-      <div className="mode-cards"><article><span>AVAILABLE NOW</span><h3>Browser practice</h3><p>Your move, simulated rivals, commitments and results exist only in this browser’s memory. Refreshing clears the round. No transaction is sent.</p><ul><li>No wallet</li><li>No payment</li><li>No chain evidence</li><li>Real commitment and scoring logic</li></ul></article><article><span>LAB AVAILABLE · LIVE ROUND UNPROVEN</span><h3>Zcash testnet</h3><p>The lab builds shielded anchor, commitment and reveal requests with downloadable public rounds and private receipts. It does not sign, broadcast or confirm them.</p><ul><li>Testnet funds only</li><li>Wallet signs transactions</li><li>Chain timing decides validity</li><li>Must be demonstrated before claimed</li></ul></article></div>
+      <div className="mode-cards"><article><span>AVAILABLE NOW</span><h3>Browser practice</h3><p>Your move, simulated rivals, commitments and results exist only in this browser’s memory unless you explicitly save a receipt. Refreshing clears the round. No transaction is sent.</p><ul><li>No wallet</li><li>No payment</li><li>No chain evidence</li><li>Real commitment and scoring logic</li></ul></article><article><span>LAB AVAILABLE · LIVE ROUND UNPROVEN</span><h3>Zcash testnet</h3><p>The lab builds shielded anchor, commitment and reveal requests with downloadable public rounds and private receipts. It does not sign, broadcast or confirm them.</p><ul><li>Testnet funds only</li><li>Wallet signs transactions</li><li>Chain timing decides validity</li><li>Must be demonstrated before claimed</li></ul></article></div>
     </section>
 
     <section className="manual-section privacy-truth">
@@ -242,6 +244,7 @@ function Game({ onRestart, soundOn }: { onRestart: () => void; soundOn: boolean 
   const [outcome, setOutcome] = useState<GameOutcome | null>(null)
   const [verified, setVerified] = useState(false)
   const [forgeryChecked, setForgeryChecked] = useState(false)
+  const [receiptSaved, setReceiptSaved] = useState(false)
   const [busy, setBusy] = useState(false)
   const [roundId, setRoundId] = useState(() => randomHex(8))
 
@@ -283,11 +286,20 @@ function Game({ onRestart, soundOn }: { onRestart: () => void; soundOn: boolean 
   }
 
   function playAgain() {
-    setBotRunners([]); setRoundId(randomHex(8)); setSelected(null); setRunners([]); setOutcome(null); setVerified(false); setForgeryChecked(false); setPhase('briefing')
+    setBotRunners([]); setRoundId(randomHex(8)); setSelected(null); setRunners([]); setOutcome(null); setVerified(false); setForgeryChecked(false); setReceiptSaved(false); setPhase('briefing')
     onRestart()
   }
 
+  function savePracticeReceipt() {
+    const receipt = runners[0]?.receipt
+    if (!receipt) return
+    downloadJson(`PRIVATE-veil-vault-practice-${roundId}.json`, { format: 'veil-vault-practice-receipt-v1', ...receipt })
+    setReceiptSaved(true)
+  }
+
   const chosenVault = VAULTS.find((vault) => vault.id === selected)
+  const playerReceipt = runners[0]?.receipt
+  const publicSeal = playerReceipt ? `Veil Vault public seal\nRound ${roundId}\n${playerReceipt.commitment}` : ''
   const winnerArt = outcome?.winnerId ? runnerArt[outcome.winnerId] : null
   const phaseLabel = phase === 'briefing' ? 'CURFEW ACTIVE' : phase === 'choose' ? 'SELECTION OPEN' : phase === 'sealed' ? 'ALL MOVES SEALED' : 'VEIL LIFTED'
   return <main className="game-main">
@@ -318,7 +330,24 @@ function Game({ onRestart, soundOn }: { onRestart: () => void; soundOn: boolean 
     {phase === 'sealed' && <section className="game-panel sealed-panel">
       <div className="sealed-heading"><span className="phase-count">02 / 03</span><span className="sealed-symbol">◆</span><span className="eyebrow eyebrow-dark">THE VEIL IS CLOSED</span><h1>Four choices.<br />Nothing to see yet.</h1><p>Every runner is now bound to one vault. The commitments reveal no useful clue, but changing a move would break its hash.</p></div>
       <div className="commitment-board">{runners.map((runner, index) => <article key={runner.id}><div><span>{String(index + 1).padStart(2, '0')}</span><RunnerThumb id={runner.id} /><strong>{runner.name}</strong></div><code>{runner.receipt.commitment.slice(0, 12)}…{runner.receipt.commitment.slice(-8)}</code><b>SEALED</b></article>)}</div>
-      <details className="receipt-details"><summary>Inspect your private move receipt</summary><dl><div><dt>Round</dt><dd>{roundId}</dd></div><div><dt>Commitment</dt><dd>{runners[0]?.receipt.commitment}</dd></div><div><dt>Private choice</dt><dd>{chosenVault?.name}</dd></div><div><dt>Random secret</dt><dd>{runners[0]?.receipt.salt}</dd></div></dl><p>In a real round, save this privately. Anyone holding it can read and reveal your move.</p></details>
+      <div className="seal-ledger">
+        <div className="seal-ledger-receipt">
+          <span className="seal-ledger-label">YOUR PRIVATE RECEIPT</span>
+          <h2>Keep the key.<br />Show the lock.</h2>
+          <p>The house can see your commitment. Only your receipt can open it after the chamber closes.</p>
+          <dl>
+            <div><dt>Round</dt><dd>{roundId}</dd></div>
+            <div><dt>Public commitment</dt><dd>{playerReceipt?.commitment}</dd></div>
+            <div><dt>Private choice</dt><dd>{chosenVault?.name}</dd></div>
+          </dl>
+          <details className="seal-receipt-details"><summary>Inspect the random secret</summary><dl><div><dt>Random secret</dt><dd>{playerReceipt?.salt}</dd></div></dl><p>Anyone holding this can read and reveal your move. Keep it private.</p></details>
+          <div className="seal-ledger-actions"><button className="button button-ghost" onClick={savePracticeReceipt}>{receiptSaved ? 'Receipt saved ✓' : 'Save private receipt'}</button>{receiptSaved && <span className="seal-saved">Saved locally. Anyone with the file can read your move.</span>}</div>
+        </div>
+        <div className="seal-ledger-public">
+          <QrCode value={publicSeal} label="PUBLIC SEAL · PRACTICE ONLY" />
+          <p>This QR contains only the public commitment. It is not a wallet request and sends nothing.</p>
+        </div>
+      </div>
       <div className="game-action-bar"><div><span>Spectators can see</span><strong>4 commitments · 0 choices</strong></div><button className="button button-acid" disabled={busy} onClick={liftVeil}>{busy ? 'Checking…' : 'Lift the veil'} <span>→</span></button></div>
     </section>}
 
@@ -329,7 +358,7 @@ function Game({ onRestart, soundOn }: { onRestart: () => void; soundOn: boolean 
       <div className="game-action-bar"><div><span>Round complete</span><strong>{outcome.winnerId ? `${playerNames[outcome.winnerId]} won with ${outcome.scores[outcome.winnerId]} relics` : 'No winner this time'}</strong></div><button className="button button-acid" onClick={playAgain}>Play another round <span>↻</span></button></div>
     </section>}
 
-    <footer className="game-footer"><span>Practice simulation · no transaction was sent</span><span>Choices and secrets remain in memory and disappear on refresh</span></footer>
+    <footer className="game-footer"><span>Practice simulation · no transaction was sent</span><span>Choices and secrets stay in memory unless you save a receipt</span></footer>
   </main>
 }
 
@@ -352,11 +381,11 @@ function App() {
   function openPage(next: 'guide' | 'fairness' | 'testnet') { const hash = next === 'guide' ? '#how-to-play' : next === 'fairness' ? '#fair-play' : '#testnet'; if (window.location.hash === hash) { setScreen(next); window.scrollTo({ top: 0, behavior: 'smooth' }) } else window.location.hash = hash }
   function toggleSound() { setSoundOn((enabled) => { const next = !enabled; if (next) playGameSound('select', true); setAmbientMusic(next); return next }) }
   return <div className="app-shell">
-    <Header screen={screen} onHome={home} onPlay={play} onGuide={() => openPage('guide')} onFairness={() => openPage('fairness')} onTestnet={() => openPage('testnet')} soundOn={soundOn} onSoundToggle={toggleSound} />
+    <Header screen={screen} onHome={home} onPlay={play} onGuide={() => openPage('guide')} onFairness={() => openPage('fairness')} soundOn={soundOn} onSoundToggle={toggleSound} />
     {screen === 'home' && <Home onPlay={play} onGuide={() => openPage('guide')} />}
     {screen === 'guide' && <Guide onPlay={play} onFairness={() => openPage('fairness')} />}
     {screen === 'fairness' && <FairPlay onPlay={play} onGuide={() => openPage('guide')} />}
-    {screen === 'testnet' && <TestnetLab />}
+    {screen === 'testnet' && <TestnetLab onPlay={play} />}
     {screen === 'game' && <Game onRestart={() => undefined} soundOn={soundOn} />}
   </div>
 }

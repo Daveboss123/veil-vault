@@ -87,6 +87,27 @@ types and unsupported metadata are rejected rather than guessed.
 - Never import a recovery phrase, spending key, full viewing key, wallet
   database or unrelated personal file.
 
+## Supplied-record checking
+
+`npm.cmd run audit -- <bundle.json> [winner-tag|none]` checks a public bundle
+without a network connection. It requires:
+
+- a complete bundle with a valid manifest fingerprint;
+- a declared tip at least five blocks after the reveal deadline, with no record
+  above that tip;
+- unique transaction IDs, the exact round recipient, fixed 100,000-zatoshi value
+  and a shielded source;
+- well-formed memos for the same round and rules fingerprint;
+- an anchor mined before the start height, commitments inside the selection
+  window and reveals inside the reveal window;
+- no more distinct commitments than the player limit;
+- every reveal recomputing to an on-time commitment;
+- an optional announced winner tag that matches the recomputed outcome.
+
+Passing means the supplied file is internally consistent. It does not prove the
+file is complete or that any transaction exists on chain. Independent chain
+retrieval is a separate, stronger claim.
+
 ## Remaining limits
 
 - One runner can create multiple tags; human uniqueness is not proven.

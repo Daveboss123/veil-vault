@@ -1,0 +1,97 @@
+{
+  "format": "veil-vault-supplied-records-v1",
+  "manifest": {
+    "format": "veil-vault-testnet-round-v1",
+    "rules": {
+      "version": 1,
+      "roundId": "5a17c0de20260001",
+      "network": "test",
+      "address": "ztestsapling10yy2ex5dcqkclhc7z7yrnjq2z6feyjad56ptwlfgmy77dmaqqrl9gyhprdx59qgmsnyfska2kez",
+      "title": "Sample: The Lantern Vigil",
+      "playerLimit": 4,
+      "startHeight": 100,
+      "commitDeadlineHeight": 110,
+      "revealDeadlineHeight": 120,
+      "submissionZatoshis": "100000",
+      "scoring": "highest-lone-vault"
+    },
+    "rulesHash": "5db945dd5e3f0cc28d808cf197cccbeb5675b0ba4ed13340cf277192f1e40df6",
+    "anchorTxid": "db36962098cce8b1d5b29a7ba89a6d70134affe521e5d6c4371101915af1cf34"
+  },
+  "tipHeight": 125,
+  "complete": true,
+  "records": [
+    {
+      "txid": "db36962098cce8b1d5b29a7ba89a6d70134affe521e5d6c4371101915af1cf34",
+      "height": 99,
+      "recipient": "ztestsapling10yy2ex5dcqkclhc7z7yrnjq2z6feyjad56ptwlfgmy77dmaqqrl9gyhprdx59qgmsnyfska2kez",
+      "valueZatoshis": "100000",
+      "shieldedSource": true,
+      "memo": "VV1A 5a17c0de20260001 5db945dd5e3f0cc28d808cf197cccbeb5675b0ba4ed13340cf277192f1e40df6"
+    },
+    {
+      "txid": "df038a720fc2cec7e604ce6fe9ede5ab513ade92e72bf3658419330fc018b082",
+      "height": 101,
+      "recipient": "ztestsapling10yy2ex5dcqkclhc7z7yrnjq2z6feyjad56ptwlfgmy77dmaqqrl9gyhprdx59qgmsnyfska2kez",
+      "valueZatoshis": "100000",
+      "shieldedSource": true,
+      "memo": "VV1C 5a17c0de20260001 5db945dd5e3f0cc28d808cf197cccbeb5675b0ba4ed13340cf277192f1e40df6 da7d264a9915994b12c5db1fe0e4dcc535b2763c16a1be01013e059a0e0f8cff"
+    },
+    {
+      "txid": "3a905192ba60148b8f2b59415f1b0305e87849392738c3f92964baa7bd28c83b",
+      "height": 102,
+      "recipient": "ztestsapling10yy2ex5dcqkclhc7z7yrnjq2z6feyjad56ptwlfgmy77dmaqqrl9gyhprdx59qgmsnyfska2kez",
+      "valueZatoshis": "100000",
+      "shieldedSource": true,
+      "memo": "VV1C 5a17c0de20260001 5db945dd5e3f0cc28d808cf197cccbeb5675b0ba4ed13340cf277192f1e40df6 54074336aaa52e98076639c72c185ab1f138ded06e74918030d02be5e3af0f2b"
+    },
+    {
+      "txid": "cb5122132c6b7186223ffb4c511c4c7c6b6a62926c435f42c5caf08f5974ded0",
+      "height": 103,
+      "recipient": "ztestsapling10yy2ex5dcqkclhc7z7yrnjq2z6feyjad56ptwlfgmy77dmaqqrl9gyhprdx59qgmsnyfska2kez",
+      "valueZatoshis": "100000",
+      "shieldedSource": true,
+      "memo": "VV1C 5a17c0de20260001 5db945dd5e3f0cc28d808cf197cccbeb5675b0ba4ed13340cf277192f1e40df6 394c525b4b44b0abc7becd5d7883cdb41188c1d1ef14349c38e1aef2d9f68365"
+    },
+    {
+      "txid": "b52beeb7455f293863942c0e0c61bc426d8190ca361c33f47d95960fad80006f",
+      "height": 104,
+      "recipient": "ztestsapling10yy2ex5dcqkclhc7z7yrnjq2z6feyjad56ptwlfgmy77dmaqqrl9gyhprdx59qgmsnyfska2kez",
+      "valueZatoshis": "100000",
+      "shieldedSource": true,
+      "memo": "VV1C 5a17c0de20260001 5db945dd5e3f0cc28d808cf197cccbeb5675b0ba4ed13340cf277192f1e40df6 fb83a749053821884efff39747e08939b5ec53edad82ddb8e122ea0df07234a2"
+    },
+    {
+      "txid": "d531192eb826a41e9629072ca6d3ed3a122c4f10124ad72ea2feab6e837ea652",
+      "height": 112,
+      "recipient": "ztestsapling10yy2ex5dcqkclhc7z7yrnjq2z6feyjad56ptwlfgmy77dmaqqrl9gyhprdx59qgmsnyfska2kez",
+      "valueZatoshis": "100000",
+      "shieldedSource": true,
+      "memo": "VV1R 5a17c0de20260001 5db945dd5e3f0cc28d808cf197cccbeb5675b0ba4ed13340cf277192f1e40df6 4a19a46a38f054de s 0f849910695708a77add3302c2ef0433dabf350f7f56c8a90eea884936b022b8"
+    },
+    {
+      "txid": "54bfdf6756ad4baf92f1cd4880abb0bc6dff04ae99a0bcb522636769b6298b96",
+      "height": 113,
+      "recipient": "ztestsapling10yy2ex5dcqkclhc7z7yrnjq2z6feyjad56ptwlfgmy77dmaqqrl9gyhprdx59qgmsnyfska2kez",
+      "valueZatoshis": "100000",
+      "shieldedSource": true,
+      "memo": "VV1R 5a17c0de20260001 5db945dd5e3f0cc28d808cf197cccbeb5675b0ba4ed13340cf277192f1e40df6 2ac382c4c6e4116e s 2c3d0bfd854e1e04479155efb3d740e6b2eb4d7c2e490330dbe32169ce2da767"
+    },
+    {
+      "txid": "5260357ebc859924ec4a211df16836ba62026d2d2cc898c004343bff50750d68",
+      "height": 114,
+      "recipient": "ztestsapling10yy2ex5dcqkclhc7z7yrnjq2z6feyjad56ptwlfgmy77dmaqqrl9gyhprdx59qgmsnyfska2kez",
+      "valueZatoshis": "100000",
+      "shieldedSource": true,
+      "memo": "VV1R 5a17c0de20260001 5db945dd5e3f0cc28d808cf197cccbeb5675b0ba4ed13340cf277192f1e40df6 00b14f39ac806af0 m 8270e391634e706e1f0eea1a02d01d508c50fb96cbe83a3e1989dcc23d0491e0"
+    },
+    {
+      "txid": "f441a13944263fcaf10c4f1c176cd21db0d7ba3fd9998d054c5ffcc3ef64c0d4",
+      "height": 115,
+      "recipient": "ztestsapling10yy2ex5dcqkclhc7z7yrnjq2z6feyjad56ptwlfgmy77dmaqqrl9gyhprdx59qgmsnyfska2kez",
+      "valueZatoshis": "100000",
+      "shieldedSource": true,
+      "memo": "VV1R 5a17c0de20260001 5db945dd5e3f0cc28d808cf197cccbeb5675b0ba4ed13340cf277192f1e40df6 426219733a159315 c a7cf4fe03f498b455026373b9335daa757ae77822be527f513bcf24e263c799b"
+    }
+  ]
+}

@@ -30,6 +30,20 @@ test('production policy blocks connections and referrers', async () => {
   assert.match(headers, /Permissions-Policy: camera=\(\), microphone=\(\)/)
 })
 
+test('host header configs agree on the critical policy', async () => {
+  const headers = await readFile('public/_headers', 'utf8')
+  const vercel = JSON.parse(await readFile('vercel.json', 'utf8')) as { headers: { source: string; headers: { key: string; value: string }[] }[] }
+  const configured = Object.fromEntries(vercel.headers.flatMap((entry) => entry.headers.map((header) => [header.key, header.value])))
+  for (const required of ['Content-Security-Policy', 'Referrer-Policy', 'Permissions-Policy', 'X-Content-Type-Options', 'X-Frame-Options', 'Cross-Origin-Opener-Policy', 'Cross-Origin-Resource-Policy']) {
+    assert.equal(typeof configured[required], 'string', `Vercel header missing: ${required}`)
+    assert.equal(headers.includes(`${required}:`), true, `Static header missing: ${required}`)
+  }
+  assert.match(configured['Content-Security-Policy'], /connect-src 'none'/)
+  assert.match(configured['Content-Security-Policy'], /frame-ancestors 'none'/)
+  assert.equal(configured['Referrer-Policy'], 'no-referrer')
+  assert.match(configured['Permissions-Policy'], /camera=\(\), microphone=\(\)/)
+})
+
 test('public artwork contains derivatives only', async () => {
   const publicFiles = await filesUnder('public')
   assert.equal(publicFiles.some((file) => /(?:inbox|art-source|\.png\.jpg$)/i.test(file)), false)

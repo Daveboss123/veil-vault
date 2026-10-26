@@ -2,6 +2,7 @@ import { useState } from 'react'
 import type { ChangeEvent, FormEvent } from 'react'
 import { auditSuppliedRecords } from '../audit.ts'
 import type { AuditResult } from '../audit.ts'
+import { downloadJson } from '../download.ts'
 import { VAULTS } from '../game.ts'
 import type { VaultId } from '../game.ts'
 import { anchorRequest, commitmentRequest, createTestnetMove, createTestnetRound, encodeMemo, revealRequest, validateManifest, validateTestnetReceipt } from '../testnet.ts'
@@ -9,15 +10,6 @@ import type { TestnetMoveReceipt, TestnetRoundManifest } from '../testnet.ts'
 import { Ornament } from './Ornament.tsx'
 import { QrCode } from './QrCode.tsx'
 import '../testnet.css'
-
-function downloadJson(filename: string, value: unknown): void {
-  const url = URL.createObjectURL(new Blob([`${JSON.stringify(value, null, 2)}\n`], { type: 'application/json' }))
-  const link = document.createElement('a')
-  link.href = url
-  link.download = filename
-  link.click()
-  URL.revokeObjectURL(url)
-}
 
 async function readJsonFile(event: ChangeEvent<HTMLInputElement>): Promise<unknown> {
   const file = event.target.files?.[0]
@@ -30,7 +22,7 @@ function copyText(value: string): void {
   void navigator.clipboard?.writeText(value)
 }
 
-export function TestnetLab() {
+export function TestnetLab({ onPlay }: { onPlay: () => void }) {
   const [mode, setMode] = useState<'intro' | 'organizer' | 'runner'>('intro')
   const [manifest, setManifest] = useState<TestnetRoundManifest | null>(null)
   const [receipt, setReceipt] = useState<TestnetMoveReceipt | null>(null)
@@ -101,7 +93,7 @@ export function TestnetLab() {
   const revealUri = manifest && receipt && revealOpen ? revealRequest(manifest, receipt) : null
 
   return <main className="testnet-page">
-    <section className="testnet-masthead"><Ornament name="route" /><div><span>EXPERIMENTAL TESTNET LAB</span><h1>Carry a sealed move<br />through Zcash.</h1><p>The site prepares shielded testnet payment requests. Your wallet reviews, signs and sends them. Veil Vault never receives wallet keys or relays a transaction.</p></div></section>
+    <section className="testnet-masthead"><Ornament name="route" /><div><span>JUDGE APPENDIX / EXPERIMENTAL TESTNET LAB</span><h1>Carry a sealed move<br />through Zcash.</h1><p>The site prepares shielded testnet payment requests. Your wallet reviews, signs and sends them. Veil Vault never receives wallet keys or relays a transaction.</p><button className="testnet-game-link" onClick={onPlay}>This is the testnet machinery, not the game. Play practice <span>→</span></button></div></section>
     <div className="testnet-warning"><strong>TESTNET ONLY</strong><span>Use TAZ with no real-world value. Never paste a recovery phrase, spending key, full viewing key or mainnet address here.</span></div>
 
     {mode === 'intro' && <section className="lab-choice"><div className="lab-heading"><span>CHOOSE A ROLE</span><h2>Who are you tonight?</h2><p>An organizer creates the public round and anchor request. A runner imports that file, seals one move, and later reveals it.</p></div><div className="lab-choice-grid"><button onClick={() => setMode('organizer')}><Ornament name="bell" /><span>ORGANIZER</span><h3>Open a chamber</h3><p>Set a shielded testnet address and block-height windows, then download the round file.</p><b>Prepare round →</b></button><button onClick={() => setMode('runner')}><Ornament name="moth" /><span>RUNNER</span><h3>Carry a move</h3><p>Import a public round file, choose a vault, save your receipt, and scan wallet requests.</p><b>Join round →</b></button></div></section>}
@@ -141,7 +133,7 @@ export function TestnetLab() {
     <section className="audit-lab">
       <div className="audit-lab-copy"><span>SUPPLIED-RECORD CHECKER</span><h2>Recompute the chamber.</h2><p>Import a complete public record bundle to check its anchor, windows, fixed payments, commitments, reveals, collisions and winner. This checks the file you supply; it cannot prove the file includes everything on chain.</p><label className="file-key">Import supplied records<input type="file" accept="application/json,.json" onChange={importAudit} /></label>{auditError && <p className="audit-error" role="alert">{auditError}</p>}</div>
       <div className="audit-result">
-        {audit ? <><span>SUPPLIED RECORDS VERIFIED</span><h3>{audit.outcome.winnerId ? `Runner ${audit.outcome.winnerId.slice(0, 8)}… wins.` : 'No runner wins.'}</h3><dl><div><dt>Commitments</dt><dd>{audit.acceptedCommitments}</dd></div><div><dt>Reveals</dt><dd>{audit.acceptedReveals}</dd></div><div><dt>Unopened</dt><dd>{audit.unopenedCommitments}</dd></div><div><dt>Rejected records</dt><dd>{audit.rejected.length}</dd></div></dl><p>Source: supplied JSON, not independent chain retrieval.</p></> : <><Ornament name="seal" /><span>NO RECORD FILE LOADED</span><p>The result will appear here without uploading the file or sending it anywhere.</p></>}
+        {audit ? <><span>SUPPLIED RECORDS PASSED FILE CHECKS</span><h3>{audit.outcome.winnerId ? `Runner ${audit.outcome.winnerId.slice(0, 8)}… wins.` : 'No runner wins.'}</h3><dl><div><dt>Commitments</dt><dd>{audit.acceptedCommitments}</dd></div><div><dt>Reveals</dt><dd>{audit.acceptedReveals}</dd></div><div><dt>Unopened</dt><dd>{audit.unopenedCommitments}</dd></div><div><dt>Rejected records</dt><dd>{audit.rejected.length}</dd></div></dl><p>Source: supplied JSON, not independent chain retrieval. A consistent file can still omit chain activity.</p></> : <><Ornament name="seal" /><span>NO RECORD FILE LOADED</span><p>The result will appear here without uploading the file or sending it anywhere.</p></>}
       </div>
     </section>
 

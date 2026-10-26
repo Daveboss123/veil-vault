@@ -5,6 +5,8 @@
 .testnet-masthead span { color: #d9ff67; font: 400 7px/1 var(--pixel); }
 .testnet-masthead h1 { max-width: 950px; margin: 28px 0; font: 400 clamp(70px, 8vw, 112px)/.72 var(--display); }
 .testnet-masthead p { max-width: 690px; margin: 0; color: #a4b0a7; font-size: 15px; line-height: 1.75; }
+.testnet-game-link { margin-top: 28px; padding: 0 0 8px; border: 0; border-bottom: 1px solid #71844d; color: #d9ff67; background: transparent; font: 400 7px/1.4 var(--pixel); text-transform: uppercase; letter-spacing: .02em; cursor: pointer; display: inline-flex; gap: 10px; }
+.testnet-game-link:hover { color: #fff; }
 .testnet-warning { min-height: 72px; padding: 17px 7.5vw; display: flex; align-items: center; gap: 25px; color: #eaded7; background: #512f29; border-bottom: 1px solid #784b42; }
 .testnet-warning strong { color: #ff8f77; font: 400 8px/1 var(--pixel); }.testnet-warning span { font-size: 12px; line-height: 1.55; }
 
