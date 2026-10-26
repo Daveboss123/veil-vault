@@ -29,23 +29,27 @@ Last reviewed: 2026-10-26. Keep unchecked items unchecked until there is evidenc
 
 - [x] **Eligibility:** organizers confirmed Veil Vault may be submitted under a
   separate ZECATHON account. Keep the written confirmation with the submission.
-- [ ] **Repository:** decide whether the submission repo is public. Confirm that
-  `art-source/inbox/` and all `PRIVATE-*.json` files stay ignored.
-- [ ] **Deployment:** publish the production build. Netlify and Cloudflare Pages
-  read `public/_headers`; Vercel reads `vercel.json`. Both are configured with
-  the same critical policy.
-- [ ] **Header check:** verify the deployed response has CSP,
-  `Referrer-Policy: no-referrer`, `X-Content-Type-Options: nosniff`,
-  `X-Frame-Options: DENY` (or frame-ancestors), and the intended
-  `Permissions-Policy`. For example:
-  `curl.exe -I https://[PUBLIC HOST]/`.
-- [ ] **Build audit:** inspect `dist/` and the deployed network panel. Confirm no
-  source maps, private receipts, high-resolution art originals or unexpected
-  requests are present.
+- [x] **Repository:** public at https://github.com/Daveboss123/veil-vault
+  (created 2026-10-26). `art-source/inbox/*.jpg` and all `PRIVATE-*.json` files
+  are confirmed ignored and untracked; no secrets, source maps or high-resolution
+  originals are tracked.
+- [x] **Deployment:** production build published at
+  https://veil-vault-lovat.vercel.app/ (Vercel project `veil-vault`, DAVE team,
+  linked to GitHub `main`). Deployment `dpl_D8mukboHL9y7THPCvjok3tMD6a9Y` is
+  READY from commit `2476c625845f1518b44d6740b9353ab39a8056cf`. Deployment
+  protection is disabled so judges can open the site without logging in.
+- [x] **Header check:** `curl.exe -I https://veil-vault-lovat.vercel.app/` on
+  2026-10-26 returned CSP with `connect-src 'none'`, `Referrer-Policy:
+  no-referrer`, `X-Content-Type-Options: nosniff`, `X-Frame-Options: DENY`,
+  `Permissions-Policy`, HSTS, COOP and CORP.
+- [x] **Build audit:** inspected `dist/` and the deployed network panel. No source
+  maps, private receipts, high-resolution art originals or unexpected requests
+  are present. Browser run showed a clean console, same-origin requests only, and
+  no cookies or browser storage.
 - [ ] **Video:** record a two-minute demo using the outline in
   `docs/SUBMISSION-DRAFT.md`. Keep the practice/testnet distinction explicit.
-- [ ] **Submission copy:** fill every placeholder in the draft, including public
-  URL, repository URL and video URL.
+- [ ] **Submission copy:** fill every placeholder in the draft, including the
+  video URL. Public and repository URLs are filled.
 - [ ] **Claims review:** read the final text against the policy below.
 
 ## Live testnet round — only with explicit approval

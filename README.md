@@ -6,6 +6,12 @@ more runners at the same door trigger its alarm and score nothing.
 
 Built as a separate project for the **ZECATHON 2026 Wildcard** track.
 
+- **Play:** https://veil-vault-lovat.vercel.app/
+- **Source:** https://github.com/Daveboss123/veil-vault
+
+The production site is a static Vite build on Vercel. It serves the same
+security headers as `public/_headers` through `vercel.json`.
+
 ## Current state
 
 The playable practice round runs entirely in the browser:

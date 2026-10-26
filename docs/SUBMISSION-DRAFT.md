@@ -8,8 +8,8 @@ Status: draft. Replace bracketed placeholders only with verified information.
 - **Track:** ZECATHON 2026 — Wildcard
 - **One line:** A one-round shielded bluffing game where four runners hide their
   vault choice, commit to it privately, and reveal only after the doors close.
-- **Public URL:** [PUBLIC URL]
-- **Repository:** [REPOSITORY URL]
+- **Public URL:** https://veil-vault-lovat.vercel.app/
+- **Repository:** https://github.com/Daveboss123/veil-vault
 - **Video:** [VIDEO URL]
 
 ## Short description
@@ -80,12 +80,15 @@ Show the privacy boundaries and the `connect-src 'none'` policy.
 
 ## Judge test path
 
-1. Open the public URL.
+1. Open https://veil-vault-lovat.vercel.app/.
 2. Read the first-night prompt and the Runner's Field Guide.
 3. Play a practice round, including the public-seal QR and private-receipt save.
 4. Open the judge-facing testnet appendix from the “Why Zcash” section.
-5. Import the sample supplied-record bundle from the repository into the checker.
-6. Run the offline audit command if the repository is available.
+5. Import the sample supplied-record bundle from
+   https://github.com/Daveboss123/veil-vault/blob/main/docs/examples/supplied-records-SAMPLE.json
+   into the checker.
+6. Run `npm.cmd run audit -- docs/examples/supplied-records-SAMPLE.json` from the
+   repository.
 
 ## Asset and licence notes
 
