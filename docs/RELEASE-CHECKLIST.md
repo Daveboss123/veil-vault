@@ -37,14 +37,18 @@ Last reviewed: 2026-10-26. Keep unchecked items unchecked until there is evidenc
 - [x] **Deployment:** production build published at
   https://veil-vault-game.vercel.app/ (Vercel project `veil-vault`, DAVE team,
   linked to GitHub `main`). Current release commit
-  `29000c271b2e913bfd533d0b444fdc05248a3ced` built as
-  `dpl_3Lqu4skvWXE3PeSnGDQTV7w6Hh5V`. The older `veil-vault-lovat.vercel.app`
-  alias and `veilvault-game.vercel.app` remain available. Deployment protection
-  is disabled so judges can open the site without logging in.
-- [x] **Production smoke test:** 2026-10-26 on the canonical URL: practice round
-  completed, public-seal QR rendered, practice receipt downloaded, 4/4 reveals
-  verified, forged winner rejected, `#testnet` appendix loaded, console clean,
-  same-origin requests only, and no cookies or browser storage.
+  `0193e23279de3b2a8a0deb5e0b6f83215ef86335` built as
+  `dpl_A4gFLk9Kjwt3gWH12maYK2bV7Evx`. Later docs-only commits may auto-deploy
+  from `main` without changing the build. The older
+  `veil-vault-lovat.vercel.app` alias and `veilvault-game.vercel.app` remain
+  available. Deployment protection is disabled so judges can open the site
+  without logging in.
+- [x] **Production smoke test:** 2026-10-26 on the canonical URL. After the
+  UI/UX pass: home, field guide, fair play and `#testnet` appendix reviewed at
+  desktop and mobile; practice round completed to a revealed result; console
+  clean; same-origin requests only; no cookies or browser storage. Earlier
+  release checks also covered the public-seal QR, practice-receipt download,
+  four verified reveals and forged-winner rejection.
 - [x] **Header check:** `curl.exe -I https://veil-vault-game.vercel.app/` on
   2026-10-26 returned CSP with `connect-src 'none'`, `Referrer-Policy:
   no-referrer`, `X-Content-Type-Options: nosniff`, `X-Frame-Options: DENY`,
