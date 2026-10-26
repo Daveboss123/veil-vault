@@ -35,9 +35,10 @@ Last reviewed: 2026-10-26. Keep unchecked items unchecked until there is evidenc
   originals are tracked.
 - [x] **Deployment:** production build published at
   https://veil-vault-lovat.vercel.app/ (Vercel project `veil-vault`, DAVE team,
-  linked to GitHub `main`). Deployment `dpl_D8mukboHL9y7THPCvjok3tMD6a9Y` is
-  READY from commit `2476c625845f1518b44d6740b9353ab39a8056cf`. Deployment
-  protection is disabled so judges can open the site without logging in.
+  linked to GitHub `main`). Release commit `2476c625845f1518b44d6740b9353ab39a8056cf`
+  built as `dpl_D8mukboHL9y7THPCvjok3tMD6a9Y`; later docs-only commits auto-deploy
+  from `main`. Deployment protection is disabled so judges can open the site
+  without logging in.
 - [x] **Header check:** `curl.exe -I https://veil-vault-lovat.vercel.app/` on
   2026-10-26 returned CSP with `connect-src 'none'`, `Referrer-Policy:
   no-referrer`, `X-Content-Type-Options: nosniff`, `X-Frame-Options: DENY`,
