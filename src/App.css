@@ -169,10 +169,11 @@ main:focus { outline: none; }
 .ring-one { width: 310px; height: 310px; }.ring-two { width: 520px; height: 520px; }
 .map-bell { position: absolute; z-index: 4; left: 50%; top: 50%; width: 110px; height: 110px; transform: translate(-50%, -50%) rotate(45deg); display: grid; place-items: center; border: 1px solid #7a8d80; background: #1b2c21; box-shadow: 0 0 0 13px rgba(217,255,103,.035); }
 .map-bell span { transform: rotate(-45deg); text-align: center; color: var(--acid); font: 400 8px/1.6 var(--pixel); }
-.map-vault { position: absolute; z-index: 4; width: 82px; height: 82px; display: grid; place-items: center; border: 1px solid #75847a; background: #17251c; transform: rotate(45deg); }
+.map-site { position: absolute; z-index: 4; width: 82px; height: 82px; }
+.map-vault { width: 82px; height: 82px; display: grid; place-items: center; border: 1px solid #75847a; background: #17251c; transform: rotate(45deg); }
 .map-vault .vault-emblem { width: 56px; transform: rotate(-45deg); }
-.map-vault span { position: absolute; width: 100px; top: 90px; color: #849187; text-align: center; font: 400 6px/1 var(--pixel); transform: rotate(-45deg); }
-.map-copper { left: 18%; top: 55%; border-color: #a06b51; }.map-moon { left: 32%; top: 18%; border-color: #8e9fac; }.map-crown { right: 19%; top: 24%; border-color: #bb9d4c; }
+.map-site > span { position: absolute; top: 106px; left: 50%; width: 120px; transform: translateX(-50%); color: #849187; text-align: center; font: 400 7px/1 var(--pixel); }
+.map-copper { left: 18%; top: 55%; }.map-copper .map-vault { border-color: #a06b51; }.map-moon { left: 32%; top: 18%; }.map-moon .map-vault { border-color: #8e9fac; }.map-crown { right: 19%; top: 24%; }.map-crown .map-vault { border-color: #bb9d4c; }
 .lore-stakes { max-width: 1400px; margin: 0 auto; min-height: 140px; display: grid; grid-template-columns: .55fr 1.5fr 1fr; gap: 35px; align-items: center; border: 1px solid #4b5d51; border-top: 0; padding: 30px; }
 .lore-stakes > span { color: var(--acid); font: 400 7px/1.4 var(--pixel); }
 .lore-stakes p { margin: 0; color: #a9b5ad; font-size: 14px; line-height: 1.7; }
@@ -257,9 +258,9 @@ main:focus { outline: none; }
 .flow-timeline { margin: 0 0 0 115px; padding: 0; list-style: none; border-top: 1px solid var(--line); }
 .flow-timeline li { min-height: 152px; display: grid; grid-template-columns: 85px 1fr; align-items: center; border-bottom: 1px solid var(--line); }.flow-timeline li > i { align-self: stretch; display: grid; place-items: center; border-right: 1px solid var(--line); color: #738078; font: normal 400 7px var(--pixel); }.flow-timeline li > div { padding: 27px 34px; }.flow-timeline span { color: #6a776e; font: 400 6px/1 var(--pixel); }.flow-timeline h3 { margin: 10px 0 9px; font: 400 29px/.85 var(--display); }.flow-timeline p { max-width: 810px; margin: 0; color: #5f6c62; font-size: 13px; line-height: 1.65; }
 .example-grid { margin-left: 115px; display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--line); }
-.example-grid article { min-width: 0; padding: 27px; border-right: 1px solid var(--line); }.example-grid article:last-child { border-right: 0; }.example-tag { color: #617067; font: 400 6px/1 var(--pixel); }
-.example-doors { margin: 24px 0; border-top: 1px solid var(--line); }.example-doors div { min-height: 39px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); }.example-doors b { font: 400 6px/1 var(--pixel); }.example-doors span { color: #6a776e; font-size: 10px; }
-.example-grid h3 { margin: 0 0 11px; font: 400 34px/.8 var(--display); }.example-grid p { margin: 0; color: #5f6c62; font-size: 13px; line-height: 1.6; }
+.example-grid article { min-width: 0; padding: 30px; border-right: 1px solid var(--line); }.example-grid article:last-child { border-right: 0; }.example-tag { color: #617067; font: 400 7px/1 var(--pixel); }
+.example-doors { margin: 24px 0; border-top: 1px solid var(--line); }.example-doors div { min-height: 42px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); }.example-doors b { font: 400 7px/1 var(--pixel); }.example-doors span { color: #5f6c62; font-size: 12px; }
+.example-grid h3 { margin: 0 0 13px; font: 400 34px/.8 var(--display); }.example-grid p { margin: 0; color: #556258; font-size: 15px; line-height: 1.65; }
 .glossary { margin: 0 0 0 115px; display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }.glossary div { min-height: 110px; padding: 24px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }.glossary dt { margin-bottom: 11px; font: 400 28px/.8 var(--display); }.glossary dd { margin: 0; color: #5c6a60; font-size: 13px; line-height: 1.6; }
 .manual-next { min-height: 285px; padding: 55px 7.5vw; display: grid; grid-template-columns: 1fr auto auto; gap: 17px; align-items: center; color: #f2eee2; background: #263b2e; }.manual-next > div { max-width: 680px; }.manual-next > div span { color: var(--acid); font: 400 6px/1 var(--pixel); }.manual-next h2 { margin: 14px 0 9px; font: 400 51px/.78 var(--display); }.manual-next p { margin: 0; color: #98a59c; font-size: 12px; line-height: 1.6; }
 
@@ -427,9 +428,9 @@ main:focus { outline: none; }
   .lore-opening > .eyebrow { grid-column: 1; }
   .city-map { height: 390px; }
   .ring-two { width: 400px; height: 400px; }
-  .map-vault { width: 74px; height: 74px; }
+  .map-site, .map-vault { width: 74px; height: 74px; }
   .map-vault .vault-emblem { width: 50px; }
-  .map-vault span { top: 82px; }
+  .map-site > span { top: 96px; }
   .map-copper { left: 10%; }
   .map-moon { left: 18%; }
   .map-crown { right: 10%; }
@@ -542,9 +543,9 @@ main:focus { outline: none; }
   .runner-card-copy { min-height: 0; }
   .city-map { height: 340px; }
   .map-ring, .map-caption-bottom { display: none; }
-  .map-vault { width: 64px; height: 64px; }
+  .map-site, .map-vault { width: 64px; height: 64px; }
   .map-vault .vault-emblem { width: 44px; }
-  .map-vault span { top: 72px; width: 82px; }
+  .map-site > span { top: 84px; width: 90px; }
   .map-copper { left: 5%; top: 59%; }
   .map-moon { left: 12%; top: 16%; }
   .map-crown { right: 6%; top: 21%; }

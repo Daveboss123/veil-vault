@@ -64,38 +64,43 @@ it or load YouTube assets.
 - Player uniqueness, sybil resistance and collusion resistance are unsolved.
 - The video is a narrated practice and lab walkthrough, not proof of a live round.
 
-## Two-minute video outline
+## Video outline (2:54)
 
 **Hosting:** YouTube, as an external link only. The site does not embed the video
 or load YouTube scripts. The video description and narration must carry the same
 qualifiers as this document.
 
-**0:00–0:15 — Hook.** "Four runners. Three vaults. One private choice. Choose
-unseen." Show the landing page and the first-night guide prompt.
+**0:00–0:15 — Cold open.** Veyr, the ledger city; privacy as evidence of guilt.
 
-**0:15–0:40 — Rules.** Open the Runner's Field Guide. Explain lone claims, alarms
-and the 3/5/8 vault values with one worked example.
+**0:15–0:29 — The Veil.** Commit the choice before the final bell; reveal only
+when no one can change course.
 
-**0:40–1:20 — Practice round.** Play one round: read rival intel, choose a vault,
-show the commitment sealing and the public-seal QR, save the practice receipt,
-reveal the rivals, and land on a result. Point out that the browser verifies every
-reveal and rejects a forged winner; this is browser-side verification, not
-on-chain verification.
+**0:29–0:49 — Rules.** Four runners, three vaults, 3/5/8 relics; a shared door
+wakes the alarm; the highest lone claim wins.
 
-**1:20–1:45 — Judge appendix.** Open the testnet appendix from “Why Zcash.” Show
-the organizer round form and anchor QR, then a runner importing the public round,
-sealing a move and opening the commitment QR. For the form, use the official
-testnet test-vector address from `docs/examples/supplied-records-SAMPLE.json`; it
-controls no funds. Do not scan or send; show that these are wallet requests only.
-State clearly: “The wallet signs; the site never sees keys or relays a
-transaction. No live round has been run yet.”
+**0:49–1:02 — Practice chamber.** No wallet, account, payment or transaction;
+same-origin only.
 
-**1:45–1:55 — Audit and privacy.** Import
-`docs/examples/supplied-records-SAMPLE.json` into the supplied-record checker and
-show the Moon winner. Say: “This is a fabricated sample, not chain evidence.”
-Show the privacy boundaries and the `connect-src 'none'` policy.
+**1:02–1:15 — Briefing.** Three relics burn; rivals have already sealed; the
+house cannot react.
 
-**1:55–2:00 — Close.** “Veil Vault: choose unseen.”
+**1:15–1:32 — Choose.** Copper, Moon, Sun Crown; read the tendencies and pick.
+
+**1:32–1:50 — Seal.** Choice + salt → SHA-256 commitment; public commitments,
+private inputs; the receipt is withheld.
+
+**1:50–2:10 — Reveal.** Every runner reveals; the browser checks each reveal
+against its commitment; a forged winner is rejected. Browser-side verification,
+not on-chain verification.
+
+**2:10–2:30 — Zcash rail.** The testnet lab prepares shielded wallet requests;
+the wallet signs; the site never sees keys. No live testnet round has been run.
+
+**2:30–2:45 — Honesty ledger.** Browser practice, not chain evidence; the audit
+sample is fabricated; no accounts, analytics, cookies or browser storage.
+
+**2:45–2:54 — Close.** Choose a vault. Keep it hidden.
+veil-vault-game.vercel.app.
 
 ### Video claims guardrails
 

@@ -17,6 +17,12 @@ screenshots/
 PRIVATE-*.json
 art-source/inbox/*.jpg
 
+# Remotion render output
+video/out/
+
+# Intermediate game-capture artifacts
+video/public/shots/tmp-*.png
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

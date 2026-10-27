@@ -1,0 +1,68 @@
+[
+  {
+    "id": "cold-open",
+    "text": "In the city of Veyr, every choice is written down. Every purchase. Every passage. Every promise. Privacy became evidence of guilt.",
+    "file": "audio/voice/cold-open.mp3",
+    "duration": 13.56
+  },
+  {
+    "id": "problem",
+    "text": "So the Night Runners built the Veil: a way to lock a choice in public without revealing it. Commit before the final bell. Reveal only when no one can change course.",
+    "file": "audio/voice/problem.mp3",
+    "duration": 12.552
+  },
+  {
+    "id": "rules",
+    "text": "Veil Vault is a four-runner bluffing game. Three vaults hold three, five, and eight relics. Choose one door and hope no rival chooses it too. A shared door wakes the alarm. The highest lone claim wins.",
+    "file": "audio/voice/rules.mp3",
+    "duration": 18.24
+  },
+  {
+    "id": "chamber",
+    "text": "This is the practice chamber. No wallet, no account, no payment. Just four runners, three vaults, and one hidden choice.",
+    "file": "audio/voice/chamber.mp3",
+    "duration": 11.232
+  },
+  {
+    "id": "briefing",
+    "text": "First, the briefing. Three relics are about to burn. Your rivals have already sealed their moves, so the house cannot react to yours.",
+    "file": "audio/voice/briefing.mp3",
+    "duration": 11.136
+  },
+  {
+    "id": "choose",
+    "text": "Choose a vault. Copper is the quiet three. Moon is the middle five. The Sun Crown is worth eight, and everyone sees it. Read the tendencies, then trust your read.",
+    "file": "audio/voice/choose.mp3",
+    "duration": 15.12
+  },
+  {
+    "id": "seal",
+    "text": "Seal your move. Your choice is mixed with a random secret and hashed into a commitment. Four commitments go public. Zero choices. Keep the receipt private; it is the key that opens your commitment later.",
+    "file": "audio/voice/seal.mp3",
+    "duration": 16.728
+  },
+  {
+    "id": "reveal",
+    "text": "When the veil lifts, every runner reveals. The browser checks each reveal against its commitment, then recomputes the round. A forged winner is rejected. This is browser-side verification, not on-chain verification.",
+    "file": "audio/voice/reveal.mp3",
+    "duration": 17.448
+  },
+  {
+    "id": "zcash",
+    "text": "The same commit-then-reveal pattern can travel through Zcash. The testnet lab prepares shielded wallet requests. Your wallet signs; the site never sees keys. No live testnet round has been run.",
+    "file": "audio/voice/zcash.mp3",
+    "duration": 16.344
+  },
+  {
+    "id": "honesty",
+    "text": "Browser practice, not chain evidence. The audit demo uses fabricated sample records, and the site keeps no accounts, analytics, cookies, or browser storage.",
+    "file": "audio/voice/honesty.mp3",
+    "duration": 13.56
+  },
+  {
+    "id": "cta",
+    "text": "Play the practice vault. Choose a vault. Keep it hidden. veil-vault-game.vercel.app.",
+    "file": "audio/voice/cta.mp3",
+    "duration": 9.384
+  }
+]

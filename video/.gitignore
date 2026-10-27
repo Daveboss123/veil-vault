@@ -1,0 +1,6 @@
+node_modules/
+out/
+
+# Generated intermediate audio
+public/audio/*.wav
+public/audio/test-voice.mp3

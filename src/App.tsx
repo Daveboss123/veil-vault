@@ -196,7 +196,7 @@ function Home({ onPlay, onGuide }: { onPlay: () => void; onGuide: () => void }) 
       <div className="city-map" aria-label="Map of Veyr and its three vault districts">
         <span className="map-caption map-caption-top">CITY OF VEYR / CURFEW MAP</span><span className="map-caption map-caption-bottom">THE BELL COURT SEES ROUTES, NOT INTENT</span>
         <div className="map-river" /><div className="map-ring ring-one" /><div className="map-ring ring-two" />
-        <div className="map-vault map-copper"><VaultEmblem id="copper" /><span>OLD MINT</span></div><div className="map-vault map-moon"><VaultEmblem id="moon" /><span>ARCHIVE</span></div><div className="map-vault map-crown"><VaultEmblem id="crown" /><span>HIGH COURT</span></div>
+        <div className="map-site map-copper"><div className="map-vault"><VaultEmblem id="copper" /></div><span>OLD MINT</span></div><div className="map-site map-moon"><div className="map-vault"><VaultEmblem id="moon" /></div><span>ARCHIVE</span></div><div className="map-site map-crown"><div className="map-vault"><VaultEmblem id="crown" /></div><span>HIGH COURT</span></div>
         <div className="map-bell"><span>THE<br />BELL</span></div>
       </div>
       <div className="lore-stakes"><span>TONIGHT’S DECREE</span><p>At the thirteenth bell, the Court will burn three forbidden relics: a mint seal, an erased atlas, and the Sun Crown. Four masks have one chance to take them first.</p><strong>One runner at a door escapes. Two wake the city.</strong></div>
