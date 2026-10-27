@@ -8,11 +8,12 @@ Built as a separate project for the **ZECATHON 2026 Wildcard** track.
 
 - **Play:** https://veil-vault-game.vercel.app/
 - **Source:** https://github.com/Daveboss123/veil-vault
+- **Demo video:** https://youtu.be/nqfkH0BOMe0
 
 The production site is a static Vite build on Vercel. It serves the same
 security headers as `public/_headers` through `vercel.json`. The submission
-video will be hosted on YouTube as an external link; this site does not embed it
-or load YouTube assets.
+video is hosted on YouTube as an external link; this site does not embed it or
+load YouTube assets.
 
 ## Current state
 
@@ -106,8 +107,9 @@ result and regeneration command.
   holding it can read the move.
 - The site has no accounts, analytics, cookies, browser-storage APIs, remote fonts,
   wallet relay or mainnet flow.
-- The submission video is hosted externally on YouTube; the site does not embed
-  it or load YouTube scripts.
+- The submission video is hosted externally on YouTube at
+  https://youtu.be/nqfkH0BOMe0; the site does not embed it or load YouTube
+  scripts.
 - Fonts, character vectors and audio are local; no media CDN is contacted.
 - Production CSP sets `connect-src 'none'`; automated privacy tests reject
   network-client or browser-storage APIs in application source.

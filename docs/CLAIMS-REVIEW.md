@@ -1,9 +1,9 @@
 # Veil Vault claims review
 
-Last reviewed: 2026-10-26, first pass before the video was recorded.
+Last reviewed: 2026-10-27, final pass against the published video.
 
-Status: first pass complete. Final pass pending the YouTube upload and final
-submission copy.
+Status: first and final passes complete. The video is published at
+https://youtu.be/nqfkH0BOMe0 as an external link.
 
 ## Purpose
 
@@ -143,26 +143,31 @@ YouTube publishing rules:
 
 Run this after the YouTube upload and final copy are in place.
 
-- [ ] Read the final YouTube title, description, chapters and captions.
-- [ ] Confirm every required qualifier appears in the video or description.
-- [ ] Confirm no forbidden phrase appears in the video or description.
-- [ ] Confirm no receipt contents, secrets, keys, balances or real addresses are
+- [x] Read the final YouTube title, description and chapters. Auto-captions were
+  not reviewed.
+- [x] Confirm every required qualifier appears in the video or description.
+- [x] Confirm no forbidden phrase appears in the video or description.
+- [x] Confirm no receipt contents, secrets, keys, balances or real addresses are
   visible.
-- [ ] Confirm the testnet lab is not presented as a live round.
-- [ ] Confirm the audit sample is labelled fabricated wherever it appears.
-- [ ] Add the YouTube URL to `docs/SUBMISSION-DRAFT.md`.
-- [ ] Re-read the final submission copy against the claim matrix.
-- [ ] Confirm the canonical URL is `https://veil-vault-game.vercel.app/` in the
+- [x] Confirm the testnet lab is not presented as a live round.
+- [x] Confirm the audit sample is labelled fabricated wherever it appears.
+- [x] Add the YouTube URL to `docs/SUBMISSION-DRAFT.md`.
+- [x] Re-read the final submission copy against the claim matrix.
+- [x] Confirm the canonical URL is `https://veil-vault-game.vercel.app/` in the
   README, submission draft, release checklist, `package.json` and GitHub homepage.
-- [ ] Confirm the site does not embed YouTube or load YouTube scripts.
-- [ ] Run `npm.cmd test`, `npm.cmd run lint`, `npm.cmd run build` and the sample
+- [x] Confirm the site does not embed YouTube or load YouTube scripts.
+- [x] Run `npm.cmd test`, `npm.cmd run lint`, `npm.cmd run build` and the sample
   audit.
-- [ ] Re-check the deployed headers and a practice round.
-- [ ] Record the final sign-off below.
+- [x] Re-check the deployed headers and a practice round.
+- [x] Record the final sign-off below.
 
 ## Sign-off
 
 | Pass | Date | Result |
 | --- | --- | --- |
 | First pass, before video | 2026-10-26 | Complete; corrections applied |
-| Final pass, after YouTube upload | Pending | Pending |
+| Final pass, after YouTube upload | 2026-10-27 | Complete; video, description and chapters verified |
+
+Platform follow-ups, not claims blockers: the published video still uses the
+upload-default title and an auto-generated thumbnail. Apply the title and
+`video/out/thumbnail.jpg` from `docs/SUBMISSION-DRAFT.md` when convenient.

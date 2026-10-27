@@ -57,10 +57,11 @@ Last reviewed: 2026-10-26. Keep unchecked items unchecked until there is evidenc
   maps, receipt files, high-resolution art originals or unexpected requests are
   present. Browser run showed a clean console, same-origin requests only, and no
   cookies or browser storage.
-- [ ] **Video:** record a two-minute demo using the outline and claims guardrails
-  in `docs/SUBMISSION-DRAFT.md`. Host it on YouTube as an external link; do not
-  embed it in the site. Keep the practice/testnet distinction explicit.
-- [ ] **Submission copy:** fill every placeholder in the draft, including the
+- [x] **Video:** rendered a 2:58 demo (`video/out/veil-vault-demo.mp4`) from the
+  outline and claims guardrails in `docs/SUBMISSION-DRAFT.md`. Hosted on YouTube
+  at https://youtu.be/nqfkH0BOMe0 as an external link; it is not embedded in the
+  site. The practice/testnet distinction stays explicit.
+- [x] **Submission copy:** placeholders filled in the draft, including the
   YouTube URL. Public and repository URLs are filled.
 - [x] **Claims review (first pass):** completed 2026-10-26 against the policy
   below. Claim-by-claim evidence and corrections are recorded in

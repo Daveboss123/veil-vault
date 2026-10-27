@@ -2,7 +2,7 @@
 
 Status: final copy ready 2026-10-27. Replace bracketed placeholders only with
 verified information. First claims review complete 2026-10-26; final review
-pending the YouTube URL.
+complete 2026-10-27 against the published video.
 
 ## Entry
 
@@ -13,7 +13,7 @@ pending the YouTube URL.
   after the doors close.
 - **Public URL:** https://veil-vault-game.vercel.app/
 - **Repository:** https://github.com/Daveboss123/veil-vault
-- **Video:** [VIDEO URL]
+- **Video:** https://youtu.be/nqfkH0BOMe0
 
 ## Short description
 
