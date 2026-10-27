@@ -1,8 +1,8 @@
 # Veil Vault — submission draft
 
-Status: draft. Replace bracketed placeholders only with verified information.
-First claims review complete 2026-10-26; final review pending YouTube upload and
-the final copy.
+Status: final copy ready 2026-10-27. Replace bracketed placeholders only with
+verified information. First claims review complete 2026-10-26; final review
+pending the YouTube URL.
 
 ## Entry
 
@@ -53,7 +53,7 @@ it or load YouTube assets.
 
 ## What is deliberately not claimed
 
-- No live testnet round has been completed.
+- The testnet lab is a judge appendix, not a played round.
 - No transaction has been signed, broadcast, mined or confirmed by this project.
 - Practice mode is a simulation, not chain evidence.
 - Receipts are not encrypted; anyone holding one can read the move.
@@ -64,7 +64,7 @@ it or load YouTube assets.
 - Player uniqueness, sybil resistance and collusion resistance are unsolved.
 - The video is a narrated practice and lab walkthrough, not proof of a live round.
 
-## Video outline (2:54)
+## Video outline (2:58)
 
 **Hosting:** YouTube, as an external link only. The site does not embed the video
 or load YouTube scripts. The video description and narration must carry the same
@@ -72,10 +72,10 @@ qualifiers as this document.
 
 **0:00–0:15 — Cold open.** Veyr, the ledger city; privacy as evidence of guilt.
 
-**0:15–0:29 — The Veil.** Commit the choice before the final bell; reveal only
+**0:15–0:30 — The Veil.** Commit the choice before the final bell; reveal only
 when no one can change course.
 
-**0:29–0:49 — Rules.** Four runners, three vaults, 3/5/8 relics; a shared door
+**0:30–0:49 — Rules.** Four runners, three vaults, 3/5/8 relics; a shared door
 wakes the alarm; the highest lone claim wins.
 
 **0:49–1:02 — Practice chamber.** No wallet, account, payment or transaction;
@@ -86,20 +86,20 @@ house cannot react.
 
 **1:15–1:32 — Choose.** Copper, Moon, Sun Crown; read the tendencies and pick.
 
-**1:32–1:50 — Seal.** Choice + salt → SHA-256 commitment; public commitments,
+**1:32–1:51 — Seal.** Choice + salt → SHA-256 commitment; public commitments,
 private inputs; the receipt is withheld.
 
-**1:50–2:10 — Reveal.** Every runner reveals; the browser checks each reveal
+**1:51–2:10 — Reveal.** Every runner reveals; the browser checks each reveal
 against its commitment; a forged winner is rejected. Browser-side verification,
 not on-chain verification.
 
-**2:10–2:30 — Zcash rail.** The testnet lab prepares shielded wallet requests;
-the wallet signs; the site never sees keys. No live testnet round has been run.
+**2:10–2:29 — Zcash rail.** The testnet lab prepares shielded wallet requests;
+the wallet signs; the site never sees keys. The lab is a judge appendix.
 
-**2:30–2:45 — Honesty ledger.** Browser practice, not chain evidence; the audit
+**2:29–2:47 — Honesty ledger.** Browser practice, not chain evidence; the audit
 sample is fabricated; no accounts, analytics, cookies or browser storage.
 
-**2:45–2:54 — Close.** Choose a vault. Keep it hidden.
+**2:47–2:58 — Close.** Choose a vault. Keep it hidden.
 veil-vault-game.vercel.app.
 
 ### Video claims guardrails
@@ -107,7 +107,6 @@ veil-vault-game.vercel.app.
 Required on screen or in narration:
 
 - “Browser practice, not chain evidence.”
-- “No live testnet round has been run.”
 - “The wallet signs; the site never sees keys.”
 - “The audit sample is fabricated.”
 - “Browser-side verification, not on-chain verification.”
@@ -138,12 +137,13 @@ Do not show:
 > project for ZECATHON 2026 Wildcard. Three vaults hold 3, 5 and 8 relics; a vault
 > pays only when exactly one runner claims it.
 >
-> This video shows the browser practice round, the public-seal QR, the practice
-> receipt that must be kept private, browser-side reveal verification, and the
-> judge-facing testnet lab. The lab prepares ZIP-321 wallet requests; the wallet
-> reviews, signs and sends. This video does not demonstrate a live testnet round,
-> and no transaction was sent, mined or confirmed for it. The supplied-record
-> sample is fabricated and is not chain evidence.
+> This video shows the browser practice round, the public-seal QR, why the
+> practice receipt must stay private, browser-side reveal verification, and the
+> judge-facing testnet lab. The lab prepares ZIP-321 wallet requests for the
+> wallet to review and sign; the wallet signs, and the site never sees keys. The
+> video shows that boundary, not a played round, and no transaction was sent,
+> mined or confirmed for it. The supplied-record sample is fabricated and is not
+> chain evidence.
 >
 > Play: https://veil-vault-game.vercel.app/
 > Source: https://github.com/Daveboss123/veil-vault
@@ -151,6 +151,19 @@ Do not show:
 >
 > The site has no analytics, accounts, cookies, browser storage, remote fonts,
 > wallet relay or external media. It does not embed this YouTube video.
+>
+> Chapters
+> 0:00 Cold open
+> 0:15 The Veil
+> 0:30 The rules
+> 0:49 Practice chamber
+> 1:02 Briefing
+> 1:15 Choose
+> 1:32 Seal
+> 1:51 Reveal
+> 2:10 Zcash rail
+> 2:29 Honesty ledger
+> 2:47 Play
 
 ## Judge test path
 
@@ -168,7 +181,7 @@ Do not show:
 ## Asset and licence notes
 
 - Application code: MIT.
-- Jacquard 24 and Silkscreen: SIL Open Font License 1.1, self-hosted.
+- Spectral, Manrope and IBM Plex Mono: SIL Open Font License 1.1, self-hosted.
 - Character art: generated with Gemini/Nano Banana, processed locally and
   documented in `docs/GENERATED-ASSETS.md`.
 - Runtime libraries: React, QRCode and `@noble/hashes`.
@@ -182,7 +195,7 @@ Do not show:
 > appendix builds public round files, receipts that must be kept private, and
 > ZIP-321 requests for fixed 0.001 TAZ shielded payments, leaving signing and
 > sending to the wallet. A supplied-record checker checks the anchor, timing,
-> commitments, collisions and winner from a public bundle. No live testnet round
-> has been run yet, and the project makes no claim of perfect anonymity. No
-> analytics, cookies, browser storage, remote assets or wallet relay; the YouTube
-> video is an external link, not an embed.
+> commitments, collisions and winner from a public bundle. The testnet lab is a
+> supporting appendix, not a played round, and the project makes no claim of
+> perfect anonymity. No analytics, cookies, browser storage, remote assets or
+> wallet relay; the YouTube video is an external link, not an embed.

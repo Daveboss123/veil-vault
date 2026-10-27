@@ -24,8 +24,8 @@ export function Chamber() {
           display: 'flex',
           alignItems: 'center',
           gap: 14,
-          font: `400 12px/1 ${FONT.pixel}`,
-          letterSpacing: '0.16em',
+          font: `400 13px/1 ${FONT.pixel}`,
+          letterSpacing: '0.13em',
           color: COLORS.inkMute,
           opacity: ramp(frame, 8, 22),
         }}
@@ -40,14 +40,14 @@ export function Chamber() {
           delay={22}
           stagger={2}
           distance={30}
-          style={{ font: `400 58px/0.82 ${FONT.display}`, color: COLORS.ink }}
+          style={{ font: `600 48px/1.06 ${FONT.display}`, color: COLORS.ink }}
         />
 
         <div
           style={{
             marginTop: 28,
-            font: `400 15px/1.7 ${FONT.pixel}`,
-            color: COLORS.inkDim,
+            font: `400 17px/1.7 ${FONT.body}`,
+            color: COLORS.inkSoft,
             opacity: ramp(frame, 96, 26),
           }}
         >
@@ -64,9 +64,9 @@ export function Chamber() {
                 alignItems: 'center',
                 gap: 10,
                 opacity: ramp(frame, 150 + index * 16, 22),
-                font: `400 11px/1 ${FONT.pixel}`,
+                font: `400 12px/1 ${FONT.pixel}`,
                 color: COLORS.inkMute,
-                letterSpacing: '0.08em',
+                letterSpacing: '0.06em',
               }}
             >
               <span style={{ width: 5, height: 5, backgroundColor: COLORS.lime }} />
@@ -86,9 +86,9 @@ export function Chamber() {
           justifyContent: 'space-between',
           width: 1260,
           opacity: ramp(frame, 30, 24),
-          font: `400 10px/1 ${FONT.pixel}`,
+          font: `400 11px/1 ${FONT.pixel}`,
           color: COLORS.inkMute,
-          letterSpacing: '0.12em',
+          letterSpacing: '0.1em',
         }}
       >
         <span>LIVE SITE / CANONICAL URL</span>
@@ -151,8 +151,8 @@ export function Chamber() {
           { value: '1', label: 'CHOICE' },
         ].map((stat) => (
           <div key={stat.label} style={{ display: 'flex', flexDirection: 'column', gap: 7 }}>
-            <span style={{ font: `400 48px/0.8 ${FONT.display}`, color: COLORS.lime }}>{stat.value}</span>
-            <span style={{ font: `400 9px/1 ${FONT.pixel}`, color: COLORS.inkMute, letterSpacing: '0.1em' }}>
+            <span style={{ font: `600 54px/1 ${FONT.display}`, color: COLORS.lime }}>{stat.value}</span>
+            <span style={{ font: `400 10px/1 ${FONT.pixel}`, color: COLORS.inkMute, letterSpacing: '0.08em' }}>
               {stat.label}
             </span>
           </div>

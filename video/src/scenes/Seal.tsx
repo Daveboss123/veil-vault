@@ -2,7 +2,6 @@ import { AbsoluteFill, useCurrentFrame } from 'remotion'
 import { Backdrop } from '../components/Backdrop'
 import { BrowserWindow } from '../components/BrowserWindow'
 import { Emblem } from '../components/Emblem'
-import { Chip } from '../components/Panel'
 import { RevealText } from '../components/RevealText'
 import { Stamp } from '../components/Stamp'
 import { hashString, ramp, scrambleText, truncateHash, useEnter } from '../lib/anim'
@@ -30,8 +29,8 @@ export function Seal() {
           display: 'flex',
           alignItems: 'center',
           gap: 12,
-          font: `400 11px/1 ${FONT.pixel}`,
-          letterSpacing: '0.14em',
+          font: `400 12px/1 ${FONT.pixel}`,
+          letterSpacing: '0.12em',
           color: COLORS.inkMute,
           opacity: ramp(frame, 8, 20),
         }}
@@ -46,13 +45,13 @@ export function Seal() {
           delay={20}
           stagger={2}
           distance={30}
-          style={{ font: `400 82px/0.78 ${FONT.display}`, color: COLORS.ink }}
+          style={{ font: `600 62px/1.03 ${FONT.display}`, color: COLORS.ink }}
         />
         <p
           style={{
             margin: '22px 0 0',
-            font: `400 14px/1.7 ${FONT.pixel}`,
-            color: COLORS.inkDim,
+            font: `400 16px/1.7 ${FONT.body}`,
+            color: COLORS.inkSoft,
             opacity: ramp(frame, 70, 24),
           }}
         >
@@ -73,7 +72,7 @@ export function Seal() {
       >
         <div style={{ display: 'flex', alignItems: 'flex-end', gap: 12 }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-            <span style={{ font: `400 8px/1 ${FONT.pixel}`, color: COLORS.inkMute, letterSpacing: '0.1em' }}>
+            <span style={{ font: `400 10px/1 ${FONT.pixel}`, color: COLORS.inkMute, letterSpacing: '0.08em' }}>
               PRIVATE CHOICE
             </span>
             <div
@@ -89,7 +88,7 @@ export function Seal() {
               }}
             >
               <Emblem id="crown" size={34} />
-              <span style={{ font: `700 10px/1.2 ${FONT.pixel}`, color: COLORS.crown, letterSpacing: '0.04em' }}>
+              <span style={{ font: `700 12px/1.25 ${FONT.body}`, color: COLORS.crown, letterSpacing: '0' }}>
                 SUN<br />CROWN
               </span>
             </div>
@@ -98,7 +97,7 @@ export function Seal() {
           <span style={{ font: `400 22px/1 ${FONT.pixel}`, color: COLORS.inkMute, paddingBottom: 26 }}>+</span>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-            <span style={{ font: `400 8px/1 ${FONT.pixel}`, color: COLORS.inkMute, letterSpacing: '0.1em' }}>
+            <span style={{ font: `400 10px/1 ${FONT.pixel}`, color: COLORS.inkMute, letterSpacing: '0.08em' }}>
               RANDOM SALT
             </span>
             <div
@@ -110,9 +109,9 @@ export function Seal() {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                font: `400 12px/1 ${FONT.pixel}`,
+                font: `500 14px/1 ${FONT.pixel}`,
                 color: COLORS.moon,
-                letterSpacing: '0.12em',
+                letterSpacing: '0.1em',
               }}
             >
               a7f3c19e
@@ -122,7 +121,7 @@ export function Seal() {
           <span style={{ font: `400 20px/1 ${FONT.pixel}`, color: COLORS.lime, paddingBottom: 28 }}>→</span>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-            <span style={{ font: `400 8px/1 ${FONT.pixel}`, color: COLORS.lime, letterSpacing: '0.1em' }}>
+            <span style={{ font: `400 10px/1 ${FONT.pixel}`, color: COLORS.lime, letterSpacing: '0.08em' }}>
               PUBLIC HASH
             </span>
             <div
@@ -136,7 +135,7 @@ export function Seal() {
                 padding: '0 12px',
                 font: `400 11px/1.5 ${FONT.pixel}`,
                 color: COLORS.inkSoft,
-                letterSpacing: '0.06em',
+                letterSpacing: '0.04em',
               }}
             >
               {scrambleText(truncateHash(PUBLIC_HASH), ramp(frame, 120, 40), 'seal-hash')}
@@ -150,9 +149,9 @@ export function Seal() {
             display: 'flex',
             alignItems: 'center',
             gap: 10,
-            font: `400 9px/1 ${FONT.pixel}`,
+            font: `400 10px/1 ${FONT.pixel}`,
             color: COLORS.inkMute,
-            letterSpacing: '0.08em',
+            letterSpacing: '0.06em',
           }}
         >
           <span style={{ width: 5, height: 5, backgroundColor: COLORS.lime }} />
@@ -191,17 +190,17 @@ export function Seal() {
             <path d="M46 34l4 6-4 6-4-6z" fill={COLORS.lime} />
           </svg>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 9 }}>
-            <span style={{ font: `400 9px/1 ${FONT.pixel}`, color: COLORS.lime, letterSpacing: '0.12em' }}>
+            <span style={{ font: `400 10px/1 ${FONT.pixel}`, color: COLORS.lime, letterSpacing: '0.1em' }}>
               YOUR PRIVATE RECEIPT
             </span>
-            <span style={{ font: `400 25px/0.9 ${FONT.display}`, color: COLORS.ink }}>
+            <span style={{ font: `600 30px/1 ${FONT.display}`, color: COLORS.ink }}>
               Keep the key.
             </span>
-            <span style={{ font: `400 10px/1.5 ${FONT.pixel}`, color: COLORS.inkMute }}>
+            <span style={{ font: `400 13px/1.5 ${FONT.body}`, color: COLORS.inkMute }}>
               Only this receipt can open your commitment later. It is never shown here.
             </span>
           </div>
-          <div style={{ position: 'absolute', right: 14, bottom: 10, opacity: receiptTagIn }}>
+          <div style={{ position: 'absolute', right: -20, top: -24, opacity: receiptTagIn }}>
             <Stamp label="SEALED" sub="PRIVATE" delay={330} rotate={-8} color={COLORS.lime} />
           </div>
         </div>
@@ -220,15 +219,15 @@ export function Seal() {
         }}
       >
         <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-          <span style={{ font: `400 58px/0.8 ${FONT.display}`, color: COLORS.lime }}>4</span>
-          <span style={{ font: `400 9px/1 ${FONT.pixel}`, color: COLORS.inkMute, letterSpacing: '0.1em' }}>
+          <span style={{ font: `600 54px/1 ${FONT.display}`, color: COLORS.lime }}>4</span>
+          <span style={{ font: `400 10px/1 ${FONT.pixel}`, color: COLORS.inkMute, letterSpacing: '0.08em' }}>
             COMMITMENTS PUBLIC
           </span>
         </div>
         <div style={{ width: 1, height: 52, backgroundColor: withAlpha(COLORS.ink, 0.16) }} />
         <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-          <span style={{ font: `400 58px/0.8 ${FONT.display}`, color: COLORS.ink }}>0</span>
-          <span style={{ font: `400 9px/1 ${FONT.pixel}`, color: COLORS.inkMute, letterSpacing: '0.1em' }}>
+          <span style={{ font: `600 54px/1 ${FONT.display}`, color: COLORS.ink }}>0</span>
+          <span style={{ font: `400 10px/1 ${FONT.pixel}`, color: COLORS.inkMute, letterSpacing: '0.08em' }}>
             CHOICES REVEALED
           </span>
         </div>
@@ -242,8 +241,8 @@ export function Seal() {
           display: 'flex',
           alignItems: 'center',
           gap: 12,
-          font: `400 10px/1 ${FONT.pixel}`,
-          letterSpacing: '0.12em',
+          font: `400 11px/1 ${FONT.pixel}`,
+          letterSpacing: '0.1em',
           color: COLORS.inkMute,
           opacity: browserIn,
         }}
@@ -297,11 +296,11 @@ export function Seal() {
           opacity: browserIn,
         }}
       >
-        <span style={{ display: 'inline-flex', alignItems: 'center', gap: 10, font: `400 10px/1 ${FONT.pixel}`, color: COLORS.inkSoft, letterSpacing: '0.06em' }}>
+        <span style={{ display: 'inline-flex', alignItems: 'center', gap: 10, font: `400 11px/1 ${FONT.pixel}`, color: COLORS.inkSoft, letterSpacing: '0.04em' }}>
           <span style={{ width: 5, height: 5, backgroundColor: COLORS.lime }} />
           4 PUBLIC COMMITMENTS / 0 CHOICES
         </span>
-        <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8, font: `400 10px/1 ${FONT.pixel}`, color: COLORS.amber, letterSpacing: '0.06em' }}>
+        <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8, font: `400 11px/1 ${FONT.pixel}`, color: COLORS.amber, letterSpacing: '0.04em' }}>
           <svg width="10" height="12" viewBox="0 0 10 12" aria-hidden="true">
             <rect x="1" y="5" width="8" height="6" fill="none" stroke="currentColor" />
             <path d="M2.5 5V3.5a2.5 2.5 0 0 1 5 0V5" fill="none" stroke="currentColor" />

@@ -107,7 +107,6 @@ The current site must not claim:
 Required on screen or in narration:
 
 - “Browser practice, not chain evidence.”
-- “No live testnet round has been run.”
 - “The wallet signs; the site never sees keys.”
 - “The audit sample is fabricated.”
 - “Browser-side verification, not on-chain verification.”

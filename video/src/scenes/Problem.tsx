@@ -31,8 +31,8 @@ export function Problem() {
           display: 'flex',
           alignItems: 'center',
           gap: 14,
-          font: `400 12px/1 ${FONT.pixel}`,
-          letterSpacing: '0.16em',
+          font: `400 13px/1 ${FONT.pixel}`,
+          letterSpacing: '0.13em',
           color: COLORS.inkMute,
           opacity: ramp(frame, 10, 22),
         }}
@@ -48,9 +48,9 @@ export function Problem() {
           stagger={3}
           distance={44}
           style={{
-            font: `400 96px/0.82 ${FONT.display}`,
+            font: `600 76px/1.03 ${FONT.display}`,
             color: COLORS.ink,
-            letterSpacing: '0.002em',
+            letterSpacing: '-0.01em',
           }}
         />
 
@@ -62,7 +62,7 @@ export function Problem() {
             transform: `translateY(${(1 - subIn) * 18}px)`,
           }}
         >
-          <p style={{ margin: 0, font: `400 22px/1.65 ${FONT.pixel}`, color: COLORS.inkDim, letterSpacing: '0.01em' }}>
+          <p style={{ margin: 0, font: `400 24px/1.62 ${FONT.body}`, color: COLORS.inkSoft, letterSpacing: '0' }}>
             A choice can be public without being readable. The Veil locks it before the final bell,
             then opens it only when no one can change course.
           </p>
@@ -94,7 +94,7 @@ export function Problem() {
               marginBottom: 20,
             }}
           >
-            <span style={{ font: `400 11px/1 ${FONT.pixel}`, color: COLORS.inkMute, letterSpacing: '0.1em' }}>
+            <span style={{ font: `400 12px/1 ${FONT.pixel}`, color: COLORS.inkMute, letterSpacing: '0.08em' }}>
               SEALED INPUT
             </span>
             <Chip accent={COLORS.moon}>PRIVATE</Chip>
@@ -120,20 +120,20 @@ export function Problem() {
                 border: `1px solid ${withAlpha(COLORS.moon, 0.45)}`,
                 display: 'grid',
                 placeItems: 'center',
-                font: `400 34px/1 ${FONT.display}`,
+                font: `600 38px/1 ${FONT.display}`,
                 color: COLORS.moon,
               }}
             >
               ?
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
-              <span style={{ font: `400 10px/1 ${FONT.pixel}`, color: COLORS.inkMute, letterSpacing: '0.12em' }}>
+              <span style={{ font: `400 11px/1 ${FONT.pixel}`, color: COLORS.inkMute, letterSpacing: '0.1em' }}>
                 YOUR CHOICE
               </span>
-              <span style={{ font: `700 22px/1 ${FONT.pixel}`, color: COLORS.ink, letterSpacing: '0.04em' }}>
+              <span style={{ font: `700 24px/1.1 ${FONT.body}`, color: COLORS.ink, letterSpacing: '0' }}>
                 HIDDEN FROM RIVALS
               </span>
-              <span style={{ font: `400 11px/1.4 ${FONT.pixel}`, color: COLORS.inkMute }}>
+              <span style={{ font: `400 15px/1.4 ${FONT.body}`, color: COLORS.inkMute }}>
                 Not written to the page.
               </span>
             </div>
@@ -157,10 +157,10 @@ export function Problem() {
             }}
           >
             <div style={{ display: 'flex', flexDirection: 'column', gap: 7 }}>
-              <span style={{ font: `400 10px/1 ${FONT.pixel}`, color: COLORS.inkMute, letterSpacing: '0.12em' }}>
+              <span style={{ font: `400 11px/1 ${FONT.pixel}`, color: COLORS.inkMute, letterSpacing: '0.1em' }}>
                 RANDOM SALT
               </span>
-              <span className="vv-code" style={{ font: `400 20px/1 ${FONT.pixel}`, color: COLORS.moon, letterSpacing: '0.16em' }}>
+              <span className="vv-code" style={{ font: `500 18px/1 ${FONT.pixel}`, color: COLORS.moon, letterSpacing: '0.12em' }}>
                 {SALT}
               </span>
             </div>
@@ -179,7 +179,7 @@ export function Problem() {
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: 12, margin: '18px 0 16px' }}>
-            <span style={{ font: `400 10px/1 ${FONT.pixel}`, color: COLORS.lime, letterSpacing: '0.14em' }}>
+            <span style={{ font: `400 11px/1 ${FONT.pixel}`, color: COLORS.lime, letterSpacing: '0.12em' }}>
               SHA-256
             </span>
             <div style={{ flex: 1, height: 1, backgroundColor: withAlpha(COLORS.lime, 0.28) }} />
@@ -196,7 +196,7 @@ export function Problem() {
             }}
           >
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
-              <span style={{ font: `400 10px/1 ${FONT.pixel}`, color: COLORS.lime, letterSpacing: '0.12em' }}>
+              <span style={{ font: `400 11px/1 ${FONT.pixel}`, color: COLORS.lime, letterSpacing: '0.1em' }}>
                 COMMITMENT / PUBLIC
               </span>
               <Chip accent={COLORS.lime}>VISIBLE</Chip>
@@ -204,7 +204,7 @@ export function Problem() {
             <div
               className="vv-code"
               style={{
-                font: `400 15px/1.6 ${FONT.pixel}`,
+                font: `400 14px/1.6 ${FONT.pixel}`,
                 color: COLORS.inkSoft,
                 letterSpacing: '0.05em',
                 wordBreak: 'break-all',
@@ -225,10 +225,10 @@ export function Problem() {
               opacity: publicIn,
             }}
           >
-            <span style={{ font: `400 11px/1 ${FONT.pixel}`, color: COLORS.inkMute, letterSpacing: '0.08em' }}>
+            <span style={{ font: `400 12px/1 ${FONT.pixel}`, color: COLORS.inkMute, letterSpacing: '0.06em' }}>
               PUBLIC: THE LOCK
             </span>
-            <span style={{ font: `700 22px/1 ${FONT.pixel}`, color: COLORS.lime, letterSpacing: '0.04em' }}>
+            <span style={{ font: `700 24px/1 ${FONT.body}`, color: COLORS.lime, letterSpacing: '0' }}>
               0 CHOICES
             </span>
           </div>
@@ -284,10 +284,10 @@ export function Problem() {
                 transform: node.active ? `scale(${1 + revealPulse * 0.15})` : 'scale(1)',
               }}
             />
-            <span style={{ font: `700 11px/1 ${FONT.pixel}`, color: node.active ? COLORS.ink : COLORS.inkMute, letterSpacing: '0.1em' }}>
+            <span style={{ font: `700 14px/1 ${FONT.body}`, color: node.active ? COLORS.ink : COLORS.inkMute, letterSpacing: '0' }}>
               {node.label}
             </span>
-            <span style={{ font: `400 9px/1 ${FONT.pixel}`, color: node.active ? withAlpha(COLORS.lime, 0.8) : COLORS.inkFaint, letterSpacing: '0.08em' }}>
+            <span style={{ font: `400 10px/1 ${FONT.pixel}`, color: node.active ? withAlpha(COLORS.lime, 0.8) : COLORS.inkFaint, letterSpacing: '0.06em' }}>
               {node.time}
             </span>
           </div>

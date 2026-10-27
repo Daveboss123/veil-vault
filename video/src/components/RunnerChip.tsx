@@ -66,8 +66,8 @@ export function RunnerChip({
       {showName && (
         <span
           style={{
-            font: `700 ${Math.max(10, size * 0.22)}px/1 ${FONT.pixel}`,
-            letterSpacing: '0.06em',
+            font: `700 ${Math.max(11, size * 0.24)}px/1 ${FONT.body}`,
+            letterSpacing: '0.02em',
             color: runner.accent,
             textTransform: 'uppercase',
           }}
@@ -76,7 +76,7 @@ export function RunnerChip({
         </span>
       )}
       {nameBelow && (
-        <span style={{ font: `400 10px/1 ${FONT.pixel}`, letterSpacing: '0.08em', color: runner.accent, textTransform: 'uppercase' }}>
+        <span style={{ font: `400 11px/1 ${FONT.body}`, letterSpacing: '0.02em', color: runner.accent, textTransform: 'uppercase' }}>
           {runner.name}
         </span>
       )}

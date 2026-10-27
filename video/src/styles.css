@@ -10,7 +10,7 @@ body {
 }
 
 .vv-root {
-  font-family: 'Silkscreen', 'Courier New', monospace;
+  font-family: 'Manrope', 'Segoe UI', sans-serif;
   color: #f2efe2;
   -webkit-font-smoothing: antialiased;
   text-rendering: geometricPrecision;
@@ -22,12 +22,12 @@ body {
 }
 
 .vv-display {
-  font-family: 'Jacquard24', 'Times New Roman', serif;
-  font-weight: 400;
+  font-family: 'Spectral', 'Iowan Old Style', serif;
+  font-weight: 600;
 }
 
 .vv-pixel {
-  font-family: 'Silkscreen', 'Courier New', monospace;
+  font-family: 'IBM Plex Mono', 'Cascadia Mono', monospace;
 }
 
 .vv-scanlines {
@@ -56,7 +56,7 @@ body {
 }
 
 .vv-code {
-  font-family: 'Silkscreen', 'Courier New', monospace;
+  font-family: 'IBM Plex Mono', 'Cascadia Mono', monospace;
   font-variant-numeric: tabular-nums;
 }
 

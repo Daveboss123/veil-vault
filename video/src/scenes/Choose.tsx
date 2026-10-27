@@ -33,14 +33,14 @@ function Readout({ label, detail, accent, frame }: ReadoutProps) {
       }}
     >
       <span style={{ width: 7, height: 7, backgroundColor: accent, boxShadow: `0 0 12px ${accent}` }} />
-      <span style={{ font: `700 12px/1 ${FONT.pixel}`, color: accent, letterSpacing: '0.08em', whiteSpace: 'nowrap' }}>
+      <span style={{ font: `700 17px/1.15 ${FONT.body}`, color: accent, letterSpacing: '0', whiteSpace: 'nowrap' }}>
         {label}
       </span>
-      <span style={{ width: 1, height: 20, backgroundColor: withAlpha(COLORS.ink, 0.14) }} />
-      <span style={{ font: `400 12px/1.4 ${FONT.pixel}`, color: COLORS.inkDim, letterSpacing: '0.02em' }}>
+      <span style={{ width: 1, height: 24, backgroundColor: withAlpha(COLORS.ink, 0.14) }} />
+      <span style={{ font: `400 16px/1.4 ${FONT.body}`, color: COLORS.inkSoft, letterSpacing: '0' }}>
         {detail}
       </span>
-      <span style={{ marginLeft: 'auto', font: `400 10px/1 ${FONT.pixel}`, color: COLORS.inkMute, letterSpacing: '0.1em' }}>
+      <span style={{ marginLeft: 'auto', font: `400 11px/1 ${FONT.pixel}`, color: COLORS.inkMute, letterSpacing: '0.08em' }}>
         {String(Math.min(3, Math.floor(frame / 70) + 1)).padStart(2, '0')} / 03
       </span>
     </div>
@@ -74,8 +74,8 @@ export function Choose() {
           display: 'flex',
           alignItems: 'center',
           gap: 12,
-          font: `400 11px/1 ${FONT.pixel}`,
-          letterSpacing: '0.14em',
+          font: `400 12px/1 ${FONT.pixel}`,
+          letterSpacing: '0.12em',
           color: COLORS.inkMute,
           opacity: ramp(frame, 8, 20),
         }}
@@ -89,8 +89,8 @@ export function Choose() {
           position: 'absolute',
           right: 120,
           top: 76,
-          font: `400 10px/1 ${FONT.pixel}`,
-          letterSpacing: '0.1em',
+          font: `400 11px/1 ${FONT.pixel}`,
+          letterSpacing: '0.08em',
           color: withAlpha(COLORS.crown, 0.85),
           opacity: ramp(frame, 20, 20),
         }}

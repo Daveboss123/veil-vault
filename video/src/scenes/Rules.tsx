@@ -28,7 +28,6 @@ const TOKENS: {
 export function Rules() {
   const frame = useCurrentFrame()
   const headlineIn = useEnter(22)
-  const cardsIn = useEnter(54)
   const runnersIn = useEnter(168)
   const ruleIn = useEnter(470)
   const alarmIn = useEnter(410, { damping: 14, stiffness: 180 })
@@ -47,8 +46,8 @@ export function Rules() {
           display: 'flex',
           alignItems: 'center',
           gap: 14,
-          font: `400 12px/1 ${FONT.pixel}`,
-          letterSpacing: '0.16em',
+          font: `400 13px/1 ${FONT.pixel}`,
+          letterSpacing: '0.13em',
           color: COLORS.inkMute,
           opacity: ramp(frame, 8, 20),
         }}
@@ -67,7 +66,7 @@ export function Rules() {
           transform: `translateY(${(1 - headlineIn) * 24}px)`,
         }}
       >
-        <h1 style={{ margin: 0, font: `400 82px/0.78 ${FONT.display}`, color: COLORS.ink, letterSpacing: '0.002em' }}>
+        <h1 style={{ margin: 0, font: `600 64px/1.02 ${FONT.display}`, color: COLORS.ink, letterSpacing: '-0.01em' }}>
           FOUR RUNNERS.<br />
           THREE VAULTS.{' '}
           <span
@@ -88,8 +87,8 @@ export function Rules() {
           position: 'absolute',
           left: 120,
           top: 330,
-          font: `400 15px/1.4 ${FONT.pixel}`,
-          color: COLORS.inkDim,
+          font: `400 18px/1.5 ${FONT.body}`,
+          color: COLORS.inkSoft,
           opacity: ramp(frame, 120, 30),
         }}
       >
@@ -154,10 +153,10 @@ export function Rules() {
             </div>
 
             <div style={{ position: 'absolute', left: 28, top: 102, width: 300 }}>
-              <h2 style={{ margin: 0, font: `400 56px/0.82 ${FONT.display}`, color: isAlarm ? COLORS.inkDim : COLORS.ink }}>
+              <h2 style={{ margin: 0, font: `600 38px/1.05 ${FONT.display}`, color: isAlarm ? COLORS.inkDim : COLORS.ink }}>
                 {vault.name}
               </h2>
-              <p style={{ margin: '14px 0 0', font: `400 14px/1.5 ${FONT.pixel}`, color: COLORS.inkMute }}>
+              <p style={{ margin: '12px 0 0', font: `400 16px/1.5 ${FONT.body}`, color: COLORS.inkMute }}>
                 {vault.line}
               </p>
             </div>
@@ -175,7 +174,7 @@ export function Rules() {
                 alignItems: 'center',
               }}
             >
-              <span style={{ font: `400 10px/1 ${FONT.pixel}`, color: COLORS.inkMute, letterSpacing: '0.1em' }}>
+              <span style={{ font: `400 10px/1 ${FONT.pixel}`, color: COLORS.inkMute, letterSpacing: '0.08em' }}>
                 DOOR 0{index + 1} / {key === 'copper' ? 'QUIET' : key === 'moon' ? 'MIDDLE' : 'EXPOSED'}
               </span>
               {isClaimed && <Chip accent={COLORS.copper} solid>CLAIMED +3</Chip>}
@@ -218,7 +217,7 @@ export function Rules() {
         style={{
           position: 'absolute',
           left: 120,
-          top: 710,
+          top: 740,
           width: 940,
           height: 1,
           backgroundColor: withAlpha(COLORS.ink, 0.12),
@@ -229,10 +228,10 @@ export function Rules() {
         style={{
           position: 'absolute',
           left: 120,
-          top: 682,
-          font: `400 10px/1 ${FONT.pixel}`,
+          top: 712,
+          font: `400 11px/1 ${FONT.pixel}`,
           color: COLORS.inkMute,
-          letterSpacing: '0.12em',
+          letterSpacing: '0.1em',
           opacity: runnersIn,
         }}
       >
@@ -243,7 +242,7 @@ export function Rules() {
         style={{
           position: 'absolute',
           left: 1080,
-          top: 710,
+          top: 740,
           width: 720,
           height: 1,
           backgroundColor: withAlpha(COLORS.ink, 0.12),
@@ -254,10 +253,10 @@ export function Rules() {
         style={{
           position: 'absolute',
           left: 1080,
-          top: 682,
-          font: `400 10px/1 ${FONT.pixel}`,
+          top: 712,
+          font: `400 11px/1 ${FONT.pixel}`,
           color: withAlpha(COLORS.lime, 0.8),
-          letterSpacing: '0.12em',
+          letterSpacing: '0.1em',
           opacity: runnersIn,
         }}
       >
@@ -302,8 +301,8 @@ export function Rules() {
             </div>
             <span
               style={{
-                font: `700 11px/1 ${FONT.pixel}`,
-                letterSpacing: '0.08em',
+                font: `700 13px/1 ${FONT.body}`,
+                letterSpacing: '0',
                 color: token.id === 'you' ? COLORS.lime : COLORS.inkSoft,
                 textTransform: 'uppercase',
                 textShadow: '0 2px 6px rgba(0,0,0,0.8)',
@@ -325,10 +324,10 @@ export function Rules() {
           transform: `translateY(${(1 - ruleIn) * 18}px)`,
         }}
       >
-        <div style={{ font: `400 38px/0.9 ${FONT.display}`, color: COLORS.ink }}>
+        <div style={{ font: `600 32px/1.12 ${FONT.display}`, color: COLORS.ink }}>
           A shared door wakes the alarm.
         </div>
-        <div style={{ marginTop: 6, font: `400 38px/0.9 ${FONT.display}`, color: COLORS.lime }}>
+        <div style={{ marginTop: 6, font: `600 32px/1.12 ${FONT.display}`, color: COLORS.lime }}>
           The highest lone claim wins.
         </div>
       </div>
@@ -352,9 +351,9 @@ export function Rules() {
             alignItems: 'center',
             padding: '9px 14px',
             borderBottom: `1px solid ${withAlpha(COLORS.ink, 0.1)}`,
-            font: `400 9px/1 ${FONT.pixel}`,
+            font: `400 10px/1 ${FONT.pixel}`,
             color: COLORS.inkMute,
-            letterSpacing: '0.1em',
+            letterSpacing: '0.08em',
           }}
         >
           <span>ROUND COMPLETE / SCORE</span>
@@ -379,10 +378,10 @@ export function Rules() {
             >
               <RunnerChip id={entry.id} size={34} />
               <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
-                <span style={{ font: `400 9px/1 ${FONT.pixel}`, color: COLORS.inkMute, letterSpacing: '0.08em', textTransform: 'uppercase' }}>
+                <span style={{ font: `400 10px/1 ${FONT.pixel}`, color: COLORS.inkMute, letterSpacing: '0.06em', textTransform: 'uppercase' }}>
                   {entry.id === 'you' ? 'YOU' : entry.id}
                 </span>
-                <span style={{ font: `700 20px/1 ${FONT.pixel}`, color: entry.accent }}>{entry.score}</span>
+                <span style={{ font: `700 22px/1 ${FONT.body}`, color: entry.accent }}>{entry.score}</span>
               </div>
             </div>
           ))}

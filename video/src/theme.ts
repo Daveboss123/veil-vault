@@ -29,9 +29,9 @@ export const COLORS = {
 } as const
 
 export const FONT = {
-  display: '"Jacquard24", "Times New Roman", serif',
-  pixel: '"Silkscreen", "Courier New", monospace',
-  body: '"Silkscreen", "Courier New", monospace',
+  display: '"Spectral", "Iowan Old Style", "Palatino Linotype", serif',
+  pixel: '"IBM Plex Mono", "Cascadia Mono", "Courier New", monospace',
+  body: '"Manrope", "Segoe UI", "Helvetica Neue", sans-serif',
 } as const
 
 export const VAULTS = {

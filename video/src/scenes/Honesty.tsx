@@ -7,10 +7,10 @@ import { COLORS, FONT, withAlpha } from '../theme'
 
 const CLAIMS = [
   { claim: 'Browser practice, not chain evidence.', scope: 'PRACTICE', status: 'STATED', accent: COLORS.lime },
-  { claim: 'No live testnet round has been run.', scope: 'TESTNET', status: 'NOT RUN', accent: COLORS.amber },
   { claim: 'The wallet signs; the site never sees keys.', scope: 'WALLET', status: 'BY DESIGN', accent: COLORS.moon },
   { claim: 'The audit sample is fabricated.', scope: 'AUDIT', status: 'SAMPLE DATA', accent: COLORS.copper },
   { claim: 'Browser-side verification, not on-chain verification.', scope: 'VERIFY', status: 'BROWSER-SIDE', accent: COLORS.crown },
+  { claim: 'No accounts, analytics, cookies, or browser storage.', scope: 'PRIVACY', status: 'NONE', accent: COLORS.lime },
 ]
 
 export function Honesty() {
@@ -32,8 +32,8 @@ export function Honesty() {
           display: 'flex',
           alignItems: 'center',
           gap: 12,
-          font: `400 11px/1 ${FONT.pixel}`,
-          letterSpacing: '0.14em',
+          font: `400 12px/1 ${FONT.pixel}`,
+          letterSpacing: '0.12em',
           color: COLORS.inkMute,
           opacity: ramp(frame, 8, 20),
         }}
@@ -48,9 +48,9 @@ export function Honesty() {
           delay={20}
           stagger={2}
           distance={30}
-          style={{ font: `400 80px/0.8 ${FONT.display}`, color: COLORS.ink }}
+          style={{ font: `600 64px/1.03 ${FONT.display}`, color: COLORS.ink }}
         />
-        <p style={{ margin: '20px 0 0', font: `400 14px/1.6 ${FONT.pixel}`, color: COLORS.inkDim }}>
+        <p style={{ margin: '20px 0 0', font: `400 17px/1.6 ${FONT.body}`, color: COLORS.inkSoft }}>
           The boundary is part of the build. This ledger states the scope plainly.
         </p>
       </div>
@@ -77,9 +77,9 @@ export function Honesty() {
               alignItems: 'center',
               padding: '12px 20px',
               borderBottom: `1px solid ${withAlpha(COLORS.ink, 0.12)}`,
-              font: `400 9px/1 ${FONT.pixel}`,
+              font: `400 11px/1 ${FONT.pixel}`,
               color: COLORS.inkMute,
-              letterSpacing: '0.1em',
+              letterSpacing: '0.08em',
             }}
           >
             <span>CHECK</span>
@@ -112,15 +112,15 @@ export function Honesty() {
                     display: 'grid',
                     placeItems: 'center',
                     color: row.accent,
-                    font: `700 15px/1 ${FONT.pixel}`,
+                    font: `700 17px/1 ${FONT.body}`,
                   }}
                 >
                   ✓
                 </div>
-                <span style={{ font: `400 15px/1.4 ${FONT.pixel}`, color: COLORS.inkSoft, letterSpacing: '0.01em' }}>
+                <span style={{ font: `400 17px/1.4 ${FONT.body}`, color: COLORS.inkSoft, letterSpacing: '0' }}>
                   {row.claim}
                 </span>
-                <span style={{ font: `400 10px/1 ${FONT.pixel}`, color: COLORS.inkMute, letterSpacing: '0.08em' }}>
+                <span style={{ font: `400 11px/1 ${FONT.pixel}`, color: COLORS.inkMute, letterSpacing: '0.06em' }}>
                   {row.scope}
                 </span>
                 <div style={{ justifySelf: 'end' }}>
@@ -162,8 +162,8 @@ export function Honesty() {
               gap: 14,
             }}
           >
-            <span style={{ font: `400 44px/0.8 ${FONT.display}`, color: COLORS.lime }}>{item.value}</span>
-            <span style={{ font: `400 10px/1 ${FONT.pixel}`, color: COLORS.inkMute, letterSpacing: '0.08em' }}>
+            <span style={{ font: `600 46px/1 ${FONT.display}`, color: COLORS.lime }}>{item.value}</span>
+            <span style={{ font: `400 10px/1 ${FONT.pixel}`, color: COLORS.inkMute, letterSpacing: '0.06em' }}>
               {item.label}
             </span>
           </div>
@@ -179,9 +179,9 @@ export function Honesty() {
           alignItems: 'center',
           gap: 14,
           opacity: noteIn,
-          font: `400 10px/1.4 ${FONT.pixel}`,
+          font: `400 11px/1.4 ${FONT.pixel}`,
           color: COLORS.inkMute,
-          letterSpacing: '0.06em',
+          letterSpacing: '0.05em',
         }}
       >
         <span style={{ width: 6, height: 6, backgroundColor: COLORS.lime }} />

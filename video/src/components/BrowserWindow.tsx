@@ -89,8 +89,8 @@ export function BrowserWindow({
             border: `1px solid ${withAlpha(COLORS.ink, 0.08)}`,
             backgroundColor: withAlpha(COLORS.black, 0.18),
             color: withAlpha(COLORS.ink, 0.5),
-            font: `400 11px/1 ${FONT.pixel}`,
-            letterSpacing: '0.04em',
+            font: `400 12px/1 ${FONT.pixel}`,
+            letterSpacing: '0.02em',
           }}
         >
           <svg width="9" height="11" viewBox="0 0 9 11" aria-hidden="true">
@@ -108,8 +108,8 @@ export function BrowserWindow({
             padding: '5px 8px',
             border: `1px solid ${withAlpha(COLORS.lime, 0.28)}`,
             color: withAlpha(COLORS.lime, 0.85),
-            font: `400 9px/1 ${FONT.pixel}`,
-            letterSpacing: '0.08em',
+            font: `400 10px/1 ${FONT.pixel}`,
+            letterSpacing: '0.06em',
             whiteSpace: 'nowrap',
           }}
         >

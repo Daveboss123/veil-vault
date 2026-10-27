@@ -35,8 +35,8 @@ export function Stamp({
         ...style,
       }}
     >
-      <span style={{ font: `700 24px/0.9 ${FONT.pixel}`, letterSpacing: '0.08em' }}>{label}</span>
-      {sub && <span style={{ font: `400 9px/1 ${FONT.pixel}`, letterSpacing: '0.12em', opacity: 0.8 }}>{sub}</span>}
+      <span style={{ font: `800 26px/0.95 ${FONT.body}`, letterSpacing: '0.06em' }}>{label}</span>
+      {sub && <span style={{ font: `500 10px/1 ${FONT.pixel}`, letterSpacing: '0.1em', opacity: 0.85 }}>{sub}</span>}
     </div>
   )
 }

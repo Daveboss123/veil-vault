@@ -1,8 +1,8 @@
-import { AbsoluteFill, interpolate, useCurrentFrame } from 'remotion'
+import { AbsoluteFill, useCurrentFrame } from 'remotion'
 import { Backdrop } from '../components/Backdrop'
 import { RevealText } from '../components/RevealText'
 import { Stamp } from '../components/Stamp'
-import { CLAMP, ramp, useEnter } from '../lib/anim'
+import { ramp, useEnter } from '../lib/anim'
 import { COLORS, FONT, withAlpha } from '../theme'
 
 const ROWS = [
@@ -40,8 +40,8 @@ export function ColdOpen() {
           display: 'flex',
           alignItems: 'center',
           gap: 16,
-          font: `400 12px/1 ${FONT.pixel}`,
-          letterSpacing: '0.18em',
+          font: `400 13px/1 ${FONT.pixel}`,
+          letterSpacing: '0.14em',
           color: COLORS.inkMute,
           opacity: ramp(frame, 10, 24),
         }}
@@ -66,8 +66,8 @@ export function ColdOpen() {
           stagger={3}
           distance={46}
           style={{
-            font: `400 128px/0.78 ${FONT.display}`,
-            letterSpacing: '0.004em',
+            font: `600 80px/1.02 ${FONT.display}`,
+            letterSpacing: '-0.01em',
             color: COLORS.ink,
             textShadow: '0 2px 0 rgba(0,0,0,0.35)',
           }}
@@ -87,9 +87,9 @@ export function ColdOpen() {
             <span
               key={line}
               style={{
-                font: `400 25px/1.2 ${FONT.pixel}`,
-                color: index === 1 ? COLORS.ink : COLORS.inkDim,
-                letterSpacing: '0.015em',
+                font: `400 27px/1.35 ${FONT.body}`,
+                color: index === 1 ? COLORS.ink : COLORS.inkSoft,
+                letterSpacing: '0',
               }}
             >
               <span style={{ color: COLORS.lime, marginRight: 14 }}>0{index + 1}</span>
@@ -145,11 +145,11 @@ export function ColdOpen() {
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
             <span style={{ width: 7, height: 7, backgroundColor: COLORS.alarm, boxShadow: `0 0 10px ${COLORS.alarm}` }} />
-            <span style={{ font: `400 11px/1 ${FONT.pixel}`, letterSpacing: '0.14em', color: COLORS.inkSoft }}>
+            <span style={{ font: `400 12px/1 ${FONT.pixel}`, letterSpacing: '0.12em', color: COLORS.inkSoft }}>
               CIVIC LEDGER / OPEN RECORD
             </span>
           </div>
-          <span style={{ font: `400 10px/1 ${FONT.pixel}`, letterSpacing: '0.1em', color: COLORS.inkMute }}>
+          <span style={{ font: `400 11px/1 ${FONT.pixel}`, letterSpacing: '0.08em', color: COLORS.inkMute }}>
             WITNESSED / IMMUTABLE
           </span>
         </div>
@@ -183,14 +183,14 @@ export function ColdOpen() {
                   position: 'relative',
                 }}
               >
-                <span style={{ font: `400 11px/1 ${FONT.pixel}`, color: COLORS.inkMute, letterSpacing: '0.04em' }}>
+                <span style={{ font: `400 11px/1 ${FONT.pixel}`, color: COLORS.inkMute, letterSpacing: '0.02em' }}>
                   {row.time}
                 </span>
                 <span
                   style={{
-                    font: `700 12px/1 ${FONT.pixel}`,
+                    font: `600 12px/1 ${FONT.pixel}`,
                     color: row.highlight ? COLORS.lime : COLORS.inkSoft,
-                    letterSpacing: '0.08em',
+                    letterSpacing: '0.06em',
                   }}
                 >
                   {row.act}
@@ -203,7 +203,7 @@ export function ColdOpen() {
                       top: 2,
                       font: `400 10px/1 ${FONT.pixel}`,
                       color: COLORS.inkMute,
-                      letterSpacing: '0.06em',
+                      letterSpacing: '0.04em',
                       whiteSpace: 'nowrap',
                     }}
                   >
@@ -225,9 +225,9 @@ export function ColdOpen() {
                 <span
                   style={{
                     justifySelf: 'end',
-                    font: `400 9px/1 ${FONT.pixel}`,
-                    color: withAlpha(COLORS.alarm, 0.82),
-                    letterSpacing: '0.1em',
+                    font: `400 10px/1 ${FONT.pixel}`,
+                    color: withAlpha(COLORS.alarm, 0.9),
+                    letterSpacing: '0.08em',
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: 7,
@@ -280,8 +280,8 @@ export function ColdOpen() {
             padding: '7px 12px',
             border: `1px solid ${withAlpha(COLORS.alarm, 0.5)}`,
             color: COLORS.alarm,
-            font: `400 11px/1 ${FONT.pixel}`,
-            letterSpacing: '0.14em',
+            font: `400 12px/1 ${FONT.pixel}`,
+            letterSpacing: '0.12em',
             marginBottom: 34,
           }}
         >
@@ -290,9 +290,9 @@ export function ColdOpen() {
         </div>
         <div
           style={{
-            font: `400 142px/0.76 ${FONT.display}`,
+            font: `600 104px/1.02 ${FONT.display}`,
             color: COLORS.ink,
-            letterSpacing: '0.002em',
+            letterSpacing: '-0.012em',
             textShadow: '0 3px 0 rgba(0,0,0,0.45)',
           }}
         >

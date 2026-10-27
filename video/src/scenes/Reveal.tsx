@@ -33,7 +33,7 @@ function RevealRow({ row, frame }: { row: (typeof ROWS)[number]; frame: number }
     >
       <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
         <RunnerChip id={row.id} size={36} />
-        <span style={{ font: `700 12px/1 ${FONT.pixel}`, color: COLORS.inkSoft, letterSpacing: '0.08em' }}>
+        <span style={{ font: `700 15px/1 ${FONT.body}`, color: COLORS.inkSoft, letterSpacing: '0' }}>
           {row.name}
         </span>
       </div>
@@ -64,7 +64,7 @@ function RevealRow({ row, frame }: { row: (typeof ROWS)[number]; frame: number }
             transform: `translateY(${(1 - flip) * 8}px)`,
           }}
         >
-          <span style={{ font: `700 18px/1 ${FONT.pixel}`, color: row.alarm ? COLORS.alarm : COLORS.ink, letterSpacing: '0.04em' }}>
+          <span style={{ font: `700 21px/1 ${FONT.body}`, color: row.alarm ? COLORS.alarm : COLORS.ink, letterSpacing: '0' }}>
             {row.choice}
           </span>
           {row.alarm && <Chip accent={COLORS.alarm}>SHARED DOOR</Chip>}
@@ -73,7 +73,7 @@ function RevealRow({ row, frame }: { row: (typeof ROWS)[number]; frame: number }
       <span
         style={{
           justifySelf: 'end',
-          font: `700 24px/1 ${FONT.pixel}`,
+          font: `700 26px/1 ${FONT.body}`,
           color: row.alarm ? COLORS.alarm : COLORS.lime,
           opacity: flip,
         }}
@@ -90,7 +90,7 @@ function RevealRow({ row, frame }: { row: (typeof ROWS)[number]; frame: number }
           color: row.alarm ? COLORS.alarm : COLORS.lime,
           opacity: check,
           transform: `scale(${0.7 + check * 0.3})`,
-          font: `700 16px/1 ${FONT.pixel}`,
+          font: `700 18px/1 ${FONT.body}`,
         }}
       >
         {row.alarm ? '×' : '✓'}
@@ -119,8 +119,8 @@ export function Reveal() {
           display: 'flex',
           alignItems: 'center',
           gap: 12,
-          font: `400 11px/1 ${FONT.pixel}`,
-          letterSpacing: '0.14em',
+          font: `400 12px/1 ${FONT.pixel}`,
+          letterSpacing: '0.12em',
           color: COLORS.inkMute,
           opacity: ramp(frame, 8, 20),
         }}
@@ -144,9 +144,9 @@ export function Reveal() {
           delay={20}
           stagger={3}
           distance={34}
-          style={{ font: `400 86px/0.8 ${FONT.display}`, color: COLORS.ink }}
+          style={{ font: `600 66px/1.03 ${FONT.display}`, color: COLORS.ink }}
         />
-        <p style={{ margin: '18px 0 0', font: `400 14px/1.6 ${FONT.pixel}`, color: COLORS.inkDim }}>
+        <p style={{ margin: '18px 0 0', font: `400 17px/1.6 ${FONT.body}`, color: COLORS.inkSoft }}>
           Every runner reveals. The browser checks each reveal against its commitment, then
           recomputes the round.
         </p>
@@ -170,9 +170,9 @@ export function Reveal() {
               gap: 20,
               padding: '12px 20px',
               borderBottom: `1px solid ${withAlpha(COLORS.ink, 0.12)}`,
-              font: `400 9px/1 ${FONT.pixel}`,
+              font: `400 11px/1 ${FONT.pixel}`,
               color: COLORS.inkMute,
-              letterSpacing: '0.1em',
+              letterSpacing: '0.08em',
             }}
           >
             <span>RUNNER</span>
@@ -204,16 +204,16 @@ export function Reveal() {
                 placeItems: 'center',
                 background: COLORS.lime,
                 color: COLORS.bgDeep,
-                font: `700 20px/1 ${FONT.pixel}`,
+                font: `700 20px/1 ${FONT.body}`,
               }}
             >
               ✓
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
-              <span style={{ font: `700 15px/1 ${FONT.pixel}`, color: COLORS.lime, letterSpacing: '0.04em' }}>
+              <span style={{ font: `700 19px/1.1 ${FONT.body}`, color: COLORS.lime, letterSpacing: '0' }}>
                 4 / 4 REVEALS MATCH THEIR COMMITMENTS
               </span>
-              <span style={{ font: `400 10px/1 ${FONT.pixel}`, color: COLORS.inkMute }}>
+              <span style={{ font: `400 13px/1.4 ${FONT.body}`, color: COLORS.inkMute }}>
                 The winner was recomputed from the revealed moves.
               </span>
             </div>
@@ -228,9 +228,9 @@ export function Reveal() {
             borderTop: `1px solid ${withAlpha(COLORS.ink, 0.14)}`,
             display: 'flex',
             justifyContent: 'space-between',
-            font: `400 10px/1.4 ${FONT.pixel}`,
+            font: `400 11px/1.5 ${FONT.pixel}`,
             color: COLORS.inkMute,
-            letterSpacing: '0.08em',
+            letterSpacing: '0.05em',
             opacity: verifiedIn,
           }}
         >
@@ -291,9 +291,9 @@ export function Reveal() {
           position: 'absolute',
           left: 120,
           top: 960,
-          font: `400 10px/1.4 ${FONT.pixel}`,
+          font: `400 11px/1.4 ${FONT.pixel}`,
           color: COLORS.inkMute,
-          letterSpacing: '0.08em',
+          letterSpacing: '0.05em',
           opacity: ramp(frame, 430, 22),
         }}
       >

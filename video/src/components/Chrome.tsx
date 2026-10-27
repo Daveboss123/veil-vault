@@ -13,7 +13,6 @@ export function Chrome() {
       (scene) => frame >= scene.from && frame < scene.from + scene.durationInFrames,
     ),
   )
-  const scene = TIMELINE.scenes[sceneIndex] ?? TIMELINE.scenes[TIMELINE.scenes.length - 1]
   const chapter = CHAPTERS[sceneIndex] ?? CHAPTERS[CHAPTERS.length - 1]
   const fadeIn = ramp(frame, 16, 26)
   const fadeOut = 1 - ramp(frame, TIMELINE.totalInFrames - 22, 22)
@@ -33,7 +32,7 @@ export function Chrome() {
           right: 44,
           top: 30,
           textAlign: 'right',
-          font: `400 10px/1.6 ${FONT.pixel}`,
+          font: `400 11px/1.6 ${FONT.pixel}`,
           letterSpacing: '0.14em',
           color: COLORS.inkMute,
           textTransform: 'uppercase',
@@ -52,7 +51,7 @@ export function Chrome() {
           display: 'flex',
           alignItems: 'flex-end',
           justifyContent: 'space-between',
-          font: `400 10px/1.3 ${FONT.pixel}`,
+          font: `400 11px/1.3 ${FONT.pixel}`,
           letterSpacing: '0.1em',
           color: COLORS.inkMute,
           textTransform: 'uppercase',
@@ -67,7 +66,7 @@ export function Chrome() {
             {formatTimecode(elapsed * fps, fps)} / {formatTimecode(totalSeconds * fps, fps)}
           </span>
           <span style={{ color: COLORS.inkSoft }}>
-            {pad(sceneIndex + 1)} / {pad(TIMELINE.scenes.length)} · {chapter.label}
+            {pad(sceneIndex + 1)} / {pad(TIMELINE.scenes.length)} / {chapter.label}
           </span>
         </span>
       </div>

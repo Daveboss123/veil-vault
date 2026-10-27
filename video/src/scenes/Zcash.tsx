@@ -34,7 +34,7 @@ function Node({
         left: x,
         top: 480,
         width: 440,
-        height: 214,
+        height: 230,
         border: `1px solid ${withAlpha(accent, 0.34)}`,
         background: `linear-gradient(145deg, ${withAlpha(accent, 0.055)}, rgba(9,15,11,0.92))`,
         padding: 24,
@@ -44,7 +44,7 @@ function Node({
     >
       <CornerTicks color={withAlpha(accent, 0.55)} size={10} />
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-        <span style={{ font: `400 9px/1 ${FONT.pixel}`, color: COLORS.inkMute, letterSpacing: '0.12em' }}>
+        <span style={{ font: `400 10px/1 ${FONT.pixel}`, color: COLORS.inkMute, letterSpacing: '0.1em' }}>
           0{index + 1} / {sub}
         </span>
         {icon === 'site' && (
@@ -66,10 +66,10 @@ function Node({
           </svg>
         )}
       </div>
-      <div style={{ marginTop: 24, font: `400 34px/0.85 ${FONT.display}`, color: COLORS.ink }}>
+      <div style={{ marginTop: 20, font: `600 28px/1.05 ${FONT.display}`, color: COLORS.ink }}>
         {title}
       </div>
-      <div style={{ marginTop: 12, font: `400 11px/1.6 ${FONT.pixel}`, color: COLORS.inkDim }}>
+      <div style={{ marginTop: 10, font: `400 15px/1.5 ${FONT.body}`, color: COLORS.inkSoft }}>
         {detail}
       </div>
     </div>
@@ -96,8 +96,8 @@ export function Zcash() {
           display: 'flex',
           alignItems: 'center',
           gap: 12,
-          font: `400 11px/1 ${FONT.pixel}`,
-          letterSpacing: '0.14em',
+          font: `400 12px/1 ${FONT.pixel}`,
+          letterSpacing: '0.12em',
           color: COLORS.inkMute,
           opacity: ramp(frame, 8, 20),
         }}
@@ -112,9 +112,9 @@ export function Zcash() {
           delay={20}
           stagger={2}
           distance={30}
-          style={{ font: `400 78px/0.8 ${FONT.display}`, color: COLORS.ink }}
+          style={{ font: `600 60px/1.03 ${FONT.display}`, color: COLORS.ink }}
         />
-        <p style={{ margin: '20px 0 0', font: `400 14px/1.6 ${FONT.pixel}`, color: COLORS.inkDim, maxWidth: 820 }}>
+        <p style={{ margin: '20px 0 0', font: `400 17px/1.6 ${FONT.body}`, color: COLORS.inkSoft, maxWidth: 820 }}>
           The same commit-then-reveal pattern can travel through Zcash. The site prepares shielded
           wallet requests; the wallet signs; the site never sees keys.
         </p>
@@ -144,7 +144,7 @@ export function Zcash() {
           <Chip accent={COLORS.amber} solid>JUDGE APPENDIX</Chip>
         </div>
         <div style={{ position: 'absolute', right: -6, top: 280 }}>
-          <Stamp label="NOT RUN" sub="NO LIVE ROUND" delay={300} rotate={-6} color={COLORS.amber} />
+          <Stamp label="TESTNET" sub="NOT MAINNET" delay={300} rotate={-6} color={COLORS.amber} />
         </div>
       </div>
 
@@ -174,7 +174,7 @@ export function Zcash() {
           index={2}
           title="ZCASHD"
           sub="TESTNET"
-          detail="Shielded testnet pool. A supporting lab, not a live game round."
+          detail="Shielded testnet pool. A supporting lab for the wallet flow."
           accent={COLORS.crown}
           icon="shield"
           frame={frame}
@@ -191,8 +191,8 @@ export function Zcash() {
           </defs>
           <line x1="566" y1="587" x2="722" y2="587" stroke={COLORS.lime} strokeWidth="1.5" strokeDasharray="8 6" strokeDashoffset={dash} markerEnd="url(#arrow-lime)" opacity={0.8} />
           <line x1="1186" y1="587" x2="1342" y2="587" stroke={COLORS.moon} strokeWidth="1.5" strokeDasharray="8 6" strokeDashoffset={dash} markerEnd="url(#arrow-moon)" opacity={0.8} />
-          <text x="610" y="568" fill={COLORS.lime} fontFamily="Silkscreen" fontSize="9" letterSpacing="1">REQUEST</text>
-          <text x="1218" y="568" fill={COLORS.moon} fontFamily="Silkscreen" fontSize="9" letterSpacing="1">SIGNED TX</text>
+          <text x="610" y="568" fill={COLORS.lime} fontFamily="IBM Plex Mono" fontSize="10" letterSpacing="1">REQUEST</text>
+          <text x="1218" y="568" fill={COLORS.moon} fontFamily="IBM Plex Mono" fontSize="10" letterSpacing="1">SIGNED TX</text>
         </svg>
       </div>
 
@@ -214,15 +214,15 @@ export function Zcash() {
         {[
           { title: 'THE WALLET SIGNS', detail: 'The site never sees keys.', accent: COLORS.moon },
           { title: 'TESTNET ONLY', detail: 'Never send mainnet ZEC.', accent: COLORS.amber },
-          { title: 'NO LIVE ROUND', detail: 'The lab is a judge appendix.', accent: COLORS.lime },
+          { title: 'JUDGE APPENDIX', detail: 'A supporting lab, not the game.', accent: COLORS.lime },
         ].map((item) => (
           <div key={item.title} style={{ display: 'flex', gap: 14, alignItems: 'flex-start' }}>
             <span style={{ width: 8, height: 8, marginTop: 4, backgroundColor: item.accent }} />
             <div style={{ display: 'flex', flexDirection: 'column', gap: 7 }}>
-              <span style={{ font: `700 13px/1 ${FONT.pixel}`, color: item.accent, letterSpacing: '0.06em' }}>
+              <span style={{ font: `700 17px/1.1 ${FONT.body}`, color: item.accent, letterSpacing: '0' }}>
                 {item.title}
               </span>
-              <span style={{ font: `400 11px/1.4 ${FONT.pixel}`, color: COLORS.inkDim }}>{item.detail}</span>
+              <span style={{ font: `400 15px/1.45 ${FONT.body}`, color: COLORS.inkSoft }}>{item.detail}</span>
             </div>
           </div>
         ))}
@@ -238,12 +238,12 @@ export function Zcash() {
           border: `1px solid ${withAlpha(COLORS.amber, 0.34)}`,
           background: withAlpha(COLORS.amber, 0.05),
           color: COLORS.amber,
-          font: `400 11px/1.5 ${FONT.pixel}`,
-          letterSpacing: '0.04em',
+          font: `500 15px/1.5 ${FONT.body}`,
+          letterSpacing: '0.02em',
           opacity: guardIn,
         }}
       >
-        TESTNET LAB / NO LIVE TESTNET ROUND HAS BEEN RUN / THE WALLET SIGNS; THE SITE NEVER SEES KEYS
+        TESTNET LAB / SHIELDED WALLET REQUESTS / THE WALLET SIGNS; THE SITE NEVER SEES KEYS
       </div>
     </AbsoluteFill>
   )

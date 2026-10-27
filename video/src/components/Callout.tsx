@@ -50,8 +50,8 @@ export function Callout({
         />
         <span
           style={{
-            font: `700 12px/1.2 ${FONT.pixel}`,
-            letterSpacing: '0.1em',
+            font: `700 14px/1.2 ${FONT.body}`,
+            letterSpacing: '0.04em',
             color: accent,
             textTransform: 'uppercase',
           }}
@@ -63,8 +63,8 @@ export function Callout({
         <p
           style={{
             margin: '8px 0 0 14px',
-            font: `400 12px/1.55 ${FONT.pixel}`,
-            letterSpacing: '0.01em',
+            font: `400 14px/1.55 ${FONT.body}`,
+            letterSpacing: '0',
             color: COLORS.inkDim,
           }}
         >

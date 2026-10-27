@@ -28,11 +28,11 @@ export function Wordmark({ size = 13, sub = true, color = COLORS.ink }: {
 }) {
   return (
     <span style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
-      <span style={{ font: `700 ${size}px/1 ${FONT.pixel}`, letterSpacing: '0.11em', color }}>
+      <span style={{ font: `700 ${size * 0.52}px/1 ${FONT.body}`, letterSpacing: '0.08em', color }}>
         VEIL <span style={{ color: COLORS.lime }}>VAULT</span>
       </span>
       {sub && (
-        <span style={{ font: `400 ${Math.max(6, size * 0.46)}px/1 ${FONT.pixel}`, letterSpacing: '0.14em', color: COLORS.inkDim }}>
+        <span style={{ font: `500 ${Math.max(8, size * 0.34)}px/1 ${FONT.pixel}`, letterSpacing: '0.12em', color: COLORS.inkDim }}>
           SHIELDED BLUFFING GAME
         </span>
       )}

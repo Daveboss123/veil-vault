@@ -30,9 +30,9 @@ export function CTA() {
           delay={26}
           stagger={2}
           distance={38}
-          style={{ font: `400 100px/0.78 ${FONT.display}`, color: COLORS.ink }}
+          style={{ font: `600 76px/1.03 ${FONT.display}`, color: COLORS.ink }}
         />
-        <p style={{ margin: '24px 0 0', font: `400 16px/1.6 ${FONT.pixel}`, color: COLORS.inkDim }}>
+        <p style={{ margin: '24px 0 0', font: `400 19px/1.6 ${FONT.body}`, color: COLORS.inkSoft }}>
           Four runners. Three vaults. One hidden choice. Browser practice, no wallet required.
         </p>
       </div>
@@ -55,10 +55,10 @@ export function CTA() {
         }}
       >
         <div style={{ display: 'flex', flexDirection: 'column', gap: 9, flex: 1 }}>
-          <span style={{ font: `400 9px/1 ${FONT.pixel}`, color: COLORS.inkMute, letterSpacing: '0.14em' }}>
+          <span style={{ font: `400 10px/1 ${FONT.pixel}`, color: COLORS.inkMute, letterSpacing: '0.12em' }}>
             CANONICAL URL / HTTPS
           </span>
-          <span style={{ font: `700 28px/1 ${FONT.pixel}`, color: COLORS.ink, letterSpacing: '0.02em' }}>
+          <span style={{ font: `600 30px/1 ${FONT.pixel}`, color: COLORS.ink, letterSpacing: '0' }}>
             veil-vault-game.vercel.app
           </span>
         </div>
@@ -71,8 +71,8 @@ export function CTA() {
             gap: 16,
             background: COLORS.lime,
             color: COLORS.bgDeep,
-            font: `700 13px/1 ${FONT.pixel}`,
-            letterSpacing: '0.06em',
+            font: `700 16px/1 ${FONT.body}`,
+            letterSpacing: '0.02em',
             whiteSpace: 'nowrap',
           }}
         >
@@ -101,11 +101,11 @@ export function CTA() {
         }}
       >
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 16 }}>
-          <span style={{ font: `700 10px/1 ${FONT.pixel}`, letterSpacing: '0.1em' }}>SCAN TO PLAY</span>
-          <span style={{ font: `400 8px/1 ${FONT.pixel}`, color: '#4c5a50', letterSpacing: '0.08em' }}>PRACTICE / NO WALLET</span>
+          <span style={{ font: `700 11px/1 ${FONT.body}`, letterSpacing: '0.08em' }}>SCAN TO PLAY</span>
+          <span style={{ font: `400 9px/1 ${FONT.pixel}`, color: '#4c5a50', letterSpacing: '0.06em' }}>PRACTICE / NO WALLET</span>
         </div>
         <Img src={staticFile('cta-qr.png')} style={{ width: 348, height: 348, display: 'block' }} />
-        <div style={{ marginTop: 14, font: `400 9px/1.4 ${FONT.pixel}`, color: '#435047', letterSpacing: '0.03em' }}>
+        <div style={{ marginTop: 14, font: `400 10px/1.4 ${FONT.pixel}`, color: '#435047', letterSpacing: '0.02em' }}>
           POINTS TO THE CANONICAL URL. NO TRACKING PARAMETERS.
         </div>
       </div>
@@ -126,7 +126,7 @@ export function CTA() {
         {(Object.keys(VAULTS) as VaultKey[]).map((key) => (
           <div key={key} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 10 }}>
             <Emblem id={key} size={86} glow />
-            <span style={{ font: `400 8px/1 ${FONT.pixel}`, color: VAULTS[key].accent, letterSpacing: '0.08em' }}>
+            <span style={{ font: `400 9px/1 ${FONT.pixel}`, color: VAULTS[key].accent, letterSpacing: '0.06em' }}>
               {VAULTS[key].short.toUpperCase()}
             </span>
           </div>
@@ -145,8 +145,8 @@ export function CTA() {
           paddingTop: 18,
           borderTop: `1px solid ${withAlpha(COLORS.ink, 0.14)}`,
           opacity: footerIn,
-          font: `400 10px/1.4 ${FONT.pixel}`,
-          letterSpacing: '0.1em',
+          font: `400 11px/1.4 ${FONT.pixel}`,
+          letterSpacing: '0.08em',
           color: COLORS.inkMute,
         }}
       >

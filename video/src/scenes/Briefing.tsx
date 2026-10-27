@@ -29,8 +29,8 @@ export function Briefing() {
             display: 'flex',
             alignItems: 'center',
             gap: 12,
-            font: `400 11px/1 ${FONT.pixel}`,
-            letterSpacing: '0.14em',
+            font: `400 12px/1 ${FONT.pixel}`,
+            letterSpacing: '0.12em',
             color: COLORS.inkMute,
             opacity: sidebarIn,
           }}
@@ -46,7 +46,7 @@ export function Briefing() {
           distance={26}
           style={{
             marginTop: 22,
-            font: `400 48px/0.82 ${FONT.display}`,
+            font: `600 42px/1.05 ${FONT.display}`,
             color: COLORS.ink,
           }}
         />
@@ -54,8 +54,8 @@ export function Briefing() {
         <p
           style={{
             margin: '24px 0 0',
-            font: `400 14px/1.7 ${FONT.pixel}`,
-            color: COLORS.inkDim,
+            font: `400 16px/1.7 ${FONT.body}`,
+            color: COLORS.inkSoft,
             opacity: ramp(frame, 70, 26),
           }}
         >
@@ -85,10 +85,10 @@ export function Briefing() {
                   }}
                 />
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
-                  <span style={{ font: `700 11px/1 ${FONT.pixel}`, color: COLORS.inkSoft, letterSpacing: '0.06em' }}>
+                  <span style={{ font: `700 14px/1.15 ${FONT.body}`, color: COLORS.inkSoft, letterSpacing: '0' }}>
                     {point.label}
                   </span>
-                  <span style={{ font: `400 10px/1.4 ${FONT.pixel}`, color: COLORS.inkMute }}>{point.detail}</span>
+                  <span style={{ font: `400 13px/1.4 ${FONT.body}`, color: COLORS.inkMute }}>{point.detail}</span>
                 </div>
               </div>
             )
@@ -150,9 +150,9 @@ export function Briefing() {
           position: 'absolute',
           left: 120,
           top: 842,
-          font: `400 10px/1.5 ${FONT.pixel}`,
+          font: `400 11px/1.6 ${FONT.pixel}`,
           color: COLORS.inkMute,
-          letterSpacing: '0.06em',
+          letterSpacing: '0.05em',
           opacity: ramp(frame, 300, 24),
         }}
       >
